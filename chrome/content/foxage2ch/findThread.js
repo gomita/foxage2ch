@@ -110,7 +110,7 @@ var FindThread = {
 		if (this._queuedThreadIds && this._queuedThreadIds.length > 0) {
 			window.opener.openDialog(
 				"chrome://foxage2ch/content/findThread.xul", "FoxAge2ch:FindThread",
-				"chrome,centerscreen,modal,all",
+				"chrome,centerscreen,modal,dialog=no,all",
 				this._queuedThreadIds.shift(), this._queuedThreadIds
 			);
 		}
