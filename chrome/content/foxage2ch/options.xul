@@ -1,0 +1,180 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://foxage2ch/skin/options.css" type="text/css"?>
+<?xml-stylesheet href="chrome://mozapps/content/preferences/preferences.css"?>
+<?xml-stylesheet href="chrome://browser/skin/preferences/preferences.css"?>
+
+<!DOCTYPE prefwindow SYSTEM "chrome://foxage2ch/locale/options.dtd">
+
+<prefwindow id="foxage2chPrefs"
+            xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+            windowtype="FoxAge2ch:Options"
+            title="FoxAge2ch - &prefs.title;"
+            buttons="accept,cancel">
+
+	<prefpane id="pane1" label="&prefs.general;" flex="1">
+		<preferences>
+			<preference id="pref:startupMode.0" name="extensions.foxage2ch.startupMode.0" type="int" />
+			<preference id="pref:startupMode.1" name="extensions.foxage2ch.startupMode.1" type="int" />
+			<preference id="pref:startupKey" name="extensions.foxage2ch.startupKey" type="string" />
+			<preference id="pref:tree.viewMode" name="extensions.foxage2ch.tree.viewMode" type="int" />
+			<preference id="pref:tree.autoCollapse" name="extensions.foxage2ch.tree.autoCollapse" type="bool" />
+			<preference id="pref:warnOnDelete" name="extensions.foxage2ch.warnOnDelete" type="bool" />
+			<preference id="pref:viewer.type" name="extensions.foxage2ch.viewer.type" type="int" />
+			<preference id="pref:viewer.url" name="extensions.foxage2ch.viewer.url" type="string" />
+		</preferences>
+		<groupbox>
+			<caption label="&prefs.startup;" />
+			<grid>
+				<columns>
+					<column />
+					<column />
+				</columns>
+				<rows>
+					<row align="center">
+						<label value="&prefs.startupMode.0;:" />
+						<menulist preference="pref:startupMode.0">
+							<menupopup>
+								<menuitem label="&prefs.startupMode.none;" value="0" />
+								<menuitem label="&prefs.startupMode.sidebar;" value="1" />
+								<menuitem label="&prefs.startupMode.window;" value="2" />
+								<menuitem label="&prefs.startupMode.tab;" value="3" />
+							</menupopup>
+						</menulist>
+					</row>
+					<row align="center">
+						<label value="&prefs.startupMode.1;:" />
+						<menulist preference="pref:startupMode.1">
+							<menupopup>
+								<menuitem label="&prefs.startupMode.none;" value="0" />
+								<menuitem label="&prefs.startupMode.sidebar;" value="1" />
+								<menuitem label="&prefs.startupMode.window;" value="2" />
+								<menuitem label="&prefs.startupMode.tab;" value="3" />
+							</menupopup>
+						</menulist>
+					</row>
+				</rows>
+			</grid>
+			<hbox align="center">
+				<label value="&prefs.startupKey;:" />
+				<label value="Ctrl+Shift+" />
+				<textbox size="1" maxlength="1" preference="pref:startupKey"
+				         oninput="this.value = this.value.toUpperCase().replace(/[^A-Z]/g, '');" />
+				<spacer width="10" />
+				<description value="&prefs.startupKey.notice; "/>
+			</hbox>
+		</groupbox>
+		<groupbox>
+			<caption label="&prefs.treeView;" />
+			<radiogroup preference="pref:tree.viewMode"
+			            onsyncfrompreference="PrefsUI.readViewMode();">
+				<hbox align="center">
+					<radio label="&prefs.viewMode.normal;" value="0" />
+					<checkbox id="autoCollapseCheckbox" label="&prefs.autoCollapse;"
+					          preference="pref:tree.autoCollapse" />
+				</hbox>
+				<radio label="&prefs.viewMode.vertical;" value="1" />
+				<radio label="&prefs.viewMode.horizontal;" value="2" />
+				<radio label="&prefs.viewMode.autodetect;" value="3" />
+			</radiogroup>
+			<checkbox label="&prefs.warnOnDelete;" preference="pref:warnOnDelete" />
+		</groupbox>
+		<groupbox>
+			<caption label="&prefs.viewer;" />
+			<radiogroup preference="pref:viewer.type"
+			            onsyncfrompreference="PrefsUI.readViewerType();">
+				<radio label="&prefs.viewer.default;" value="0" />
+				<radio label="&prefs.viewer.bbs2ch;" value="1" id="viewerTypeBbs2ch" />
+				<hbox align="center">
+					<radio label="&prefs.viewer.p2rep2;" value="2" />
+					<textbox id="viewerURL" preference="pref:viewer.url" flex="1" />
+				</hbox>
+			</radiogroup>
+		</groupbox>
+	</prefpane>
+
+	<prefpane id="pane2" label="&prefs.advanced;" flex="1">
+		<preferences>
+			<preference id="pref:maxConnections" name="extensions.foxage2ch.maxConnections" type="int" />
+			<preference id="pref:autoCheckInterval" name="extensions.foxage2ch.autoCheckInterval" type="int" />
+			<preference id="pref:loadAfterChecking" name="extensions.foxage2ch.loadAfterChecking" type="bool" />
+			<preference id="pref:autoCheckOnStartup" name="extensions.foxage2ch.autoCheckOnStartup" type="bool" />
+			<preference id="pref:upwardMargin" name="extensions.foxage2ch.upwardMargin" type="int" />
+			<preference id="pref:openThreadInTab" name="extensions.foxage2ch.openThreadInTab" type="bool" />
+			<preference id="pref:loadInBackground" name="extensions.foxage2ch.loadInBackground" type="bool" inverted="true" />
+			<preference id="pref:loadInterval" name="extensions.foxage2ch.loadInterval" type="int" />
+			<preference id="pref:dataDir.default" name="extensions.foxage2ch.dataDir.default" type="bool" />
+			<preference id="pref:dataDir.path" name="extensions.foxage2ch.dataDir.path" type="file"
+			            onchange="PrefsUI.displayDataDirPref();" />
+			<preference id="pref:maxBackups" name="extensions.foxage2ch.maxBackups" type="int" />
+		</preferences>
+		<groupbox>
+			<caption label="&prefs.checkUpdates;" />
+			<hbox align="center">
+				<label value="&prefs.maxConn;:" />
+				<textbox type="number" size="1" min="1" max="4"
+				         preference="pref:maxConnections"
+				         onsyncfrompreference="PrefsUI.readMaxConnections();" />
+				<label id="maxConnMin" value="&prefs.maxConn.min;" hidden="true" />
+				<label id="maxConnMax" value="&prefs.maxConn.max;" hidden="true" />
+			</hbox>
+			<checkbox label="&prefs.autoCheckOnStartup;"
+			          preference="pref:autoCheckOnStartup" />
+			<hbox align="center">
+				<checkbox label="&prefs.autoCheck.1;"
+				          preference="pref:autoCheckInterval"
+				          onsyncfrompreference="return PrefsUI.readAutoCheckInterval();"
+				          onsynctopreference="return this.checked ? 5 : 0;" />
+				<textbox id="autoCheck" type="number" size="2" min="0" max="99"
+				         preference="pref:autoCheckInterval" />
+				<label value="&prefs.autoCheck.2;" />
+			</hbox>
+			<checkbox label="&prefs.loadAfterChecking;"
+			          preference="pref:loadAfterChecking" />
+		</groupbox>
+		<groupbox>
+			<caption label="&prefs.openThreads;" />
+			<checkbox label="&prefs.openThreadInTab;" preference="pref:openThreadInTab" />
+			<checkbox label="&prefs.switchToNewTabs;" preference="pref:loadInBackground" />
+			<hbox align="center">
+				<label value="&prefs.upwardMargin;:" />
+				<textbox id="upwardMargin" type="number" size="3" min="0" max="999"
+				         preference="pref:upwardMargin" />
+				<checkbox label="&prefs.upwardMargin.all;"
+				          preference="pref:upwardMargin"
+				          onsyncfrompreference="return PrefsUI.readUpwardMargin();"
+				          onsynctopreference="return this.checked ? -1 : 2;" />
+			</hbox>
+			<hbox align="center">
+				<label value="&prefs.loadInterval;:" />
+				<textbox type="number" size="3" min="1" preference="pref:loadInterval" />
+			</hbox>
+		</groupbox>
+		<groupbox>
+			<caption label="&prefs.dataDir;" />
+			<radiogroup preference="pref:dataDir.default"
+			            onsyncfrompreference="PrefsUI.readDataDirDefault();">
+				<radio label="&prefs.dataDir.default;" value="true" />
+				<hbox align="center">
+					<radio label="&prefs.dataDir.custom;:" value="false" />
+					<filefield id="dataDirField" flex="1"
+					           preference="pref:dataDir.path"
+					           preference-editable="true"
+					           onsyncfrompreference="PrefsUI.displayDataDirPref();" />
+					<button id="chooseDirButton"
+					        label="&prefs.dataDir.browse;..."
+					        filepickerlabel="&prefs.dataDir;"
+					        oncommand="PrefsUI.chooseFolder();" />
+				</hbox>
+				<hbox align="center">
+					<label value="&prefs.maxBackups;:" />
+					<textbox type="number" size="3" min="0" preference="pref:maxBackups" />
+				</hbox>
+			</radiogroup>
+		</groupbox>
+	</prefpane>
+
+	<script type="application/x-javascript" src="chrome://foxage2ch/content/options.js" />
+
+</prefwindow>

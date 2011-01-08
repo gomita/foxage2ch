@@ -1,0 +1,42 @@
+<!ENTITY prefs.title "Options">
+<!ENTITY prefs.general "General">
+<!ENTITY prefs.advanced "Advanced">
+<!ENTITY prefs.startup "Startup">
+<!ENTITY prefs.startupMode.0 "Left-click on toolbar button">
+<!ENTITY prefs.startupMode.1 "Middle-click on toolbar button">
+<!ENTITY prefs.startupMode.none "…">
+<!ENTITY prefs.startupMode.sidebar "Open in sidebar">
+<!ENTITY prefs.startupMode.window "Open in window">
+<!ENTITY prefs.startupMode.tab "Open in tab">
+<!ENTITY prefs.startupKey "Shortcut key">
+<!ENTITY prefs.startupKey.notice "Change requires a Firefox restart.">
+<!ENTITY prefs.treeView "Tree View">
+<!ENTITY prefs.viewMode.normal "Normal tree">
+<!ENTITY prefs.viewMode.vertical "Vertical two panes">
+<!ENTITY prefs.viewMode.horizontal "Horizontal two panes">
+<!ENTITY prefs.viewMode.autodetect "Two panes (Auto-detect)">
+<!ENTITY prefs.autoCollapse "When opening a folder, close all other folders">
+<!ENTITY prefs.warnOnDelete "Warn me when deleting a board or thread">
+<!ENTITY prefs.viewer "Viewer">
+<!ENTITY prefs.viewer.default "No viewer">
+<!ENTITY prefs.viewer.bbs2ch "Use bbs2chreader / chaika">
+<!ENTITY prefs.viewer.p2rep2 "Use p2.2ch.net / rep2">
+<!ENTITY prefs.checkUpdates "Check Updates">
+<!ENTITY prefs.autoCheckOnStartup "Automatically check updates on start-up">
+<!ENTITY prefs.autoCheck.1 "Automatically check updates every">
+<!ENTITY prefs.autoCheck.2 "minutes">
+<!ENTITY prefs.maxConn "Max number of connections">
+<!ENTITY prefs.maxConn.min "(Lazy)">
+<!ENTITY prefs.maxConn.max "(Turbo)">
+<!ENTITY prefs.loadAfterChecking "After checking updates, open updated threads automatically">
+<!ENTITY prefs.openThreads "Open Threads">
+<!ENTITY prefs.upwardMargin "Number of posts to show upwardly">
+<!ENTITY prefs.upwardMargin.all "Show all posts">
+<!ENTITY prefs.openThreadInTab "Open thread in a new tab">
+<!ENTITY prefs.switchToNewTabs "When I open in a new tab, switch to it immediately">
+<!ENTITY prefs.loadInterval "Interval for 'Open Updated Threads' (in seconds)">
+<!ENTITY prefs.dataDir "Location to Save Data">
+<!ENTITY prefs.dataDir.default "Default (under Profile Folder)">
+<!ENTITY prefs.dataDir.custom "Save data to">
+<!ENTITY prefs.dataDir.browse "Browse">
+<!ENTITY prefs.maxBackups "Max number of backup files">

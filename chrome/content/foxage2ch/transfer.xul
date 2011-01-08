@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+
+<!DOCTYPE wizard SYSTEM "chrome://foxage2ch/locale/foxage2ch.dtd">
+
+<wizard id="transferWizard"
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        title="FoxAge2ch - &transfer;"
+        windowtype="FoxAge2ch:Transfer"
+        onload="TransferWizard.init();"
+        onunload="TransferWizard.done();">
+
+	<script type="application/x-javascript" src="chrome://foxage2ch/content/transfer.js" />
+
+	<stringbundle id="transferBundle" src="chrome://foxage2ch/locale/transfer.properties" />
+
+	<wizardpage label="&transfer;">
+		<progressmeter id="meter" mode="undetermined" collapsed="true" />
+		<listbox id="tracer" />
+	</wizardpage>
+
+</wizard>

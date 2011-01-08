@@ -1,0 +1,149 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://foxage2ch/content/bindings.css" type="text/css"?>
+<?xml-stylesheet href="chrome://foxage2ch/skin/foxage2ch.css" type="text/css"?>
+<?xml-stylesheet href="chrome://browser/skin/places/places.css" type="text/css"?>
+
+<!DOCTYPE window SYSTEM "chrome://foxage2ch/locale/foxage2ch.dtd">
+
+<window id="foxage2chWindow"
+        title="FoxAge2ch"
+        windowtype="FoxAge2ch"
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        onload="FoxAge2chUI.init();"
+        onbeforeunload="FoxAge2chUI.uninit();"
+        onclose="FoxAge2chUI.uninit();"
+        onunload="FoxAge2chUI.uninit();"
+        width="300" height="500" screenX="15" screenY="15"
+        persist="width height screenX screenY sizemode">
+
+	<script type="application/x-javascript" src="chrome://foxage2ch/content/foxage2ch.js" />
+	<script type="application/x-javascript" src="chrome://foxage2ch/content/treeView.js" />
+
+	<keyset>
+		<key id="key_closeWindow" key="W" modifiers="accel" oncommand="window.close();" disabled="true" />
+	</keyset>
+
+	<commandset id="foxage2chCommands"
+	            commandupdater="true"
+	            events="contextmenu"
+	            oncommandupdate="FoxAge2chController.onCommandUpdate();"
+	            oncommand="FoxAge2chController.doCommand(event.target.id);">
+		<command id="cmd_open" />
+		<command id="cmd_openNewTab" />
+		<command id="cmd_checkUpdates" />
+		<command id="cmd_checkUpdatesAll" />
+		<command id="cmd_checkUpdatesRange" />
+		<command id="cmd_openUpdates" />
+		<command id="cmd_openUpdatesAll" />
+		<command id="cmd_openUpdatesRange" />
+		<command id="cmd_fetchTitle" />
+		<command id="cmd_newSeparator" />
+		<command id="cmd_findThread" />
+		<command id="cmd_findNextThread" />
+		<command id="cmd_transfer" />
+		<command id="cmd_delete" />
+		<command id="cmd_showInfo" />
+	</commandset>
+
+	<menupopup id="foxage2chContext" onpopupshowing="return FoxAge2chUI.buildContextMenu(event);">
+		<menuitem label="&checkUpdates; (&toNextSep;)" accesskey="&checkUpdates.key;" command="cmd_checkUpdatesRange" />
+		<menuitem label="&openUpdates; (&toNextSep;)"  accesskey="&openUpdates.key;"  command="cmd_openUpdatesRange" />
+		<menuseparator />
+		<menuitem label="&checkUpdates;" accesskey="&checkUpdates.key;" command="cmd_checkUpdates" />
+		<menuitem label="&openUpdates;"  accesskey="&openUpdates.key;"  command="cmd_openUpdates" />
+		<menuseparator />
+		<menuitem label="&open;"         accesskey="&open.key;"         command="cmd_open" />
+		<menuitem label="&openNewTab;"   accesskey="&openNewTab.key;"   command="cmd_openNewTab" />
+		<menuseparator />
+		<menuitem label="&newSeparator;" accesskey="&newSeparator.key;" command="cmd_newSeparator" />
+		<menuseparator />
+		<menuitem label="&fetchTitle;"        accesskey="&fetchTitle.key;" command="cmd_fetchTitle" />
+		<menuitem label="&findThread;..."     accesskey="&findThread.key;" command="cmd_findThread" />
+		<menuitem label="&findNextThread;..." accesskey="&findThread.key;" command="cmd_findNextThread" />
+		<menuitem label="&transfer;..."       accesskey="&transfer.key;"   command="cmd_transfer" />
+		<menuseparator />
+		<menuitem id="contextDelete"   class="menuitem-iconic" label="&delete;"   accesskey="&delete.key;"   command="cmd_delete" />
+		<menuseparator />
+		<menuitem id="contextShowInfo" class="menuitem-iconic" label="&showInfo;" accesskey="&showInfo.key;" command="cmd_showInfo" />
+	</menupopup>
+
+	<hbox id="mainToolbar" align="center">
+		<toolbarbutton id="checkUpdatesButton" tooltiptext="&checkUpdates; (&allBoards;)" command="cmd_checkUpdatesAll"
+		               type="checkbox" autoCheck="false" accesskey="&checkUpdates.key;" />
+		<toolbarbutton id="openUpdatesButton" tooltiptext="&openUpdates; (&allBoards;)" command="cmd_openUpdatesAll" 
+		               type="checkbox" autoCheck="false" accesskey="&openUpdates.key;" />
+		<toolbarbutton id="addURLButton" tooltiptext="&addURL;" oncommand="FoxAge2chUI.addURL();" accesskey="&addURL.key;" />
+		<toolbarbutton id="toggleFoldersButton" tooltiptext="&toggleFolders;" oncommand="FoxAge2chUI.mainView.toggleAllFolders(false);" />
+		<spacer flex="1" />
+		<toolbarbutton type="menu" label="&tools;">
+			<menupopup>
+				<menuitem label="&tools.options;..." oncommand="FoxAge2chUI.openPreferences();" />
+				<menuseparator />
+				<menuitem label="&tools.threadFilter;" oncommand="FoxAge2chUI.setFilter('filter:datout|1000 ');" />
+				<menuitem label="&tools.findNextAll;..." oncommand="FoxAge2chUI.findNextAll();" />
+				<menuseparator />
+				<menuitem label="&tools.dataDir;" oncommand="FoxAge2chUtils.dataDir.QueryInterface(Ci.nsILocalFile).launch();" />
+				<menuitem label="&tools.restore;..." oncommand="FoxAge2chUI.restoreFromBackup(this);" />
+				<menuitem label="&tools.import;..."
+				          oncommand="window.openDialog('chrome://foxage2ch/content/import.xul','FoxAge2ch:Import','chrome,centerscreen,modal');" />
+				<menuseparator />
+				<menuitem label="&tools.2chBBS;" oncommand="FoxAge2chUI.open2chBBS(event);" onclick="FoxAge2chUI.open2chBBS(event);" />
+			</menupopup>
+		</toolbarbutton>
+	</hbox>
+	<hbox id="searchToolbar" align="center">
+		<textbox id="searchFilter" type="search" timeout="500" clickSelectsAll="true"
+		         emptytext="&quickSearch;" placeholder="&quickSearch;"
+		         accesskey="&quickSearch.key;"
+		         oncommand="FoxAge2chUI.onSearchFilterInput(this.value);"
+		         flex="1" />
+	</hbox>
+
+	<notificationbox id="foxage2chNotifbox" flex="1">
+		<vbox flex="1">
+			<tree id="mainTree"
+			      context="foxage2chContext"
+			      seltype="single"
+			      onclick="FoxAge2chUI.handleTreeClick(event);"
+			      onkeypress="FoxAge2chUI.handleTreeKeypress(event);"
+			      hidecolumnpicker="true"
+			      class="plain" flex="1"
+			      persist="width height">
+				<treecols>
+					<treecol flex="1" primary="true" hideheader="true" />
+				</treecols>
+				<treechildren ondragstart="FoxAge2chUI.handleTreeDNDEvent(event);"
+				              ondragenter="FoxAge2chUI.handleTreeDNDEvent(event);"
+				              ondragover="FoxAge2chUI.handleTreeDNDEvent(event);"
+				              ondrop="FoxAge2chUI.handleTreeDNDEvent(event);" />
+			</tree>
+			<splitter id="viewSplitter" hidden="true" class="plain" />
+			<vbox id="subTreeOuter" flex="1" hidden="true" persist="width height">
+				<sidebarheader align="center">
+					<label id="subTreeHeader" crop="end" flex="1"
+					       onclick="FoxAge2chUI.handleSubTreeHeaderClick(event);" />
+					<toolbarbutton class="plain exit-button" oncommand="FoxAge2chUI.showSubPane(null);" />
+				</sidebarheader>
+				<tree id="subTree"
+				      context="foxage2chContext"
+				      seltype="single"
+				      onclick="FoxAge2chUI.handleTreeClick(event);"
+				      onkeypress="FoxAge2chUI.handleTreeKeypress(event);"
+				      hidecolumnpicker="true"
+				      class="plain" flex="1"
+				      persist="root">
+					<treecols>
+						<treecol flex="1" hideheader="true" primary="true" />
+					</treecols>
+					<treechildren ondragstart="FoxAge2chUI.handleTreeDNDEvent(event);"
+					              ondragenter="FoxAge2chUI.handleTreeDNDEvent(event);"
+					              ondragover="FoxAge2chUI.handleTreeDNDEvent(event);"
+					              ondrop="FoxAge2chUI.handleTreeDNDEvent(event);" />
+				</tree>
+			</vbox>
+		</vbox>
+	</notificationbox>
+
+</window>

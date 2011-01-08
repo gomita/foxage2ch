@@ -1,0 +1,6 @@
+<!ENTITY resultPage.desc "追加するスレッド (複数可) を選択し、「完了」ボタンを押してください。">
+<!ENTITY resultTree.title "スレッドタイトル">
+<!ENTITY resultTree.match "最長一致文字列">
+<!ENTITY resultTree.lastRes "最新レス数">
+<!ENTITY resultTree.created "スレ立て日時">
+<!ENTITY resultCheckbox "元スレを削除">

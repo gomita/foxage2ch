@@ -1,0 +1,179 @@
+#include "nsISupports.idl"
+
+interface nsIVariant;
+interface xdIFoxAge2chTreeView;
+interface xdIFoxAge2chService;
+
+
+[scriptable, uuid(37d5b1fd-34ae-406d-9300-a0ca790c1513)]
+interface xdIFoxAge2chTreeView : nsISupports
+{
+
+	/**
+	 * ツリー上で現在選択している行に対応するアイテムを取得する
+	 */
+	readonly attribute nsIVariant currentItem;
+
+	/**
+	 * ツリーのルートのアイテムIDを取得または変更する
+	 */
+	attribute ACString root;
+
+	/**
+	 * ツリーのフィルタオブジェクトを取得または変更する
+	 */
+	attribute nsIVariant filter;
+
+	/**
+	 * 表示データを再構築してツリーを再描画する
+	 */
+	void rebuildTree();
+
+	/**
+	 * 指定したアイテムのツリー行を再描画する
+	 */
+	void redrawItem(in nsIVariant aItem);
+
+	/**
+	 * nsITreeBoxObject::clearStyleAndImageCachesのラッパー
+	 */
+	void clearDrawingCaches();
+
+	/**
+	 * 指定したツリー行番号のアイテムを選択する
+	 */
+	void selectIndex(in long aIndex);
+
+	/**
+	 * 指定したツリー行番号のアイテムを取得する
+	 */
+	nsIVariant itemForTreeIndex(in long aIndex);
+
+	/**
+	 * 指定したアイテムのツリー行番号を取得する
+	 */
+	long treeIndexForItem(in nsIVariant aItem);
+
+	/**
+	 * ツリーのすべてのフォルダを開く／閉じる
+	 * すべてのフォルダが閉じている場合、すべてのフォルダを開く。
+	 * ひとつでも開いているフォルダがある場合、すべてのフォルダを閉じる。
+	 * @param aForceClose true: 現在の開閉状態によらずすべてのフォルダを閉じる
+	 */
+	void toggleAllFolders(in boolean aForceClose);
+
+	/**
+	 * 指定した行番号から下方向に次の区切りが出現するまでのアイテムの配列を取得する
+	 */
+	void getSeparatedRange(in long aStartIndex, out unsigned long aItemsCount,
+	                       [retval, array, size_is(aItemsCount)] out nsIVariant aItems);
+
+};
+
+
+[scriptable, uuid(19d6d8b4-bd62-45f2-b8fa-c4a58b0f9fbe)]
+interface xdIFoxAge2chService : nsISupports
+{
+
+	/**
+	 * 指定したアイテムIDに対応するアイテムを取得する
+	 * @param aItemId アイテムID。
+	 * @returns アイテム。存在しない場合はnull。
+	 */
+	nsIVariant getItem(in ACString aItemId);
+
+	/**
+	 * 指定したアイテムIDを親とするすべてのアイテムの配列を取得する
+	 * @param aParentId 親のアイテムID。
+	 * @returns 子のアイテムの配列。
+	 */
+	void getChildItems(in ACString aParentId, out unsigned long aItemsCount,
+	                   [retval, array, size_is(aItemsCount)] out nsIVariant aItems);
+
+	/**
+	 * 新しいアイテムを追加する
+	 * @param aNewItem 新たに生成したアイテム。
+	 * @param aRefItem 追加する位置のアイテム。nullなら末尾へ追加する。
+	 */
+	void insertItem(in nsIVariant aNewItem, in nsIVariant aRefItem);
+
+	/**
+	 * 指定したアイテム (板またはスレッド) をブラウザで開く
+	 * @param aItem 開くアイテム。
+	 * @param aInNewTab 新しいタブで開くかどうか。
+	 * @param aInBackground バックグラウンドのタブで開くかどうか。
+	 */
+	void openItem(in nsIVariant aItem, in boolean aInNewTab, in boolean aInBackground);
+
+	/**
+	 * 指定したアイテムのツリー上での位置を移動する
+	 * @param aItem 移動するアイテム
+	 * @param aRefItem 移動先の位置のアイテム。
+	 */
+	void moveItem(in nsIVariant aItem, in nsIVariant aRefItem);
+
+	/**
+	 * 指定したアイテムを削除する
+	 * 板を削除した場合、その板を親とするすべてのスレッドも削除する。
+	 * @param aItem 削除するアイテム
+	 */
+	void removeItem(in nsIVariant aItem);
+
+	/**
+	 * 指定したアイテムのプロパティを変更する
+	 * @param aItem プロパティを変更するアイテム。
+	 * @param aProperty 変更するプロパティ名。
+	 * @param aValue 変更後の値。
+	 */
+	void changeItemProperty(in nsIVariant aItem, in ACString aProperty, in nsIVariant aValue);
+
+	/**
+	 * アイテムに関連する統計データを更新する
+	 * @param aItem アイテム
+	 */
+	void updateItemStats(in nsIVariant aItem);
+
+	/**
+	 * 更新チェック
+	 * @param aItemId 板のアイテムID。
+	 *                "root"ならすべての板の更新チェックをする。
+	 *                nullまたは指定無しの場合、更新チェックを停止する。
+	 */
+	void checkUpdates(in ACString aItemId);
+
+	/**
+	 * 更新されたスレッドを開く
+	 * @param aItemId 板のアイテムID。
+	 *                "root"ならすべての板の更新チェックをする。
+	 *                nullまたは指定無しの場合、更新チェックを停止する。
+	 */
+	void openUpdates(in ACString aItemId);
+
+	/**
+	 * タイトル取得
+	 * @param aItem 板またはスレッドのアイテムID。
+	 */
+	void fetchTitle(in nsIVariant aItem);
+
+	/**
+	 * データファイルを再読み込みしてデータを更新する
+	 * 「バックアップから復元」や「インポート」を実行した後にこのメソッドを呼び出す。
+	 */
+	void reloadData();
+
+	/**
+	 * 指定したURLに対応する板またはスレッドを登録する
+	 * @param aURL 板またはスレッドのURL
+	 * @returns 新たに追加した板またはスレッドのアイテム。
+	 */
+	nsIVariant addFavorite(in ACString aURL);
+
+	/**
+	 * コマンドの有効／無効状態を返す
+	 * @param aCommand コマンド名。"cmd_checkUpdates", "cmd_openUpdates" のいずれか。
+	 */
+	PRBool isCommandEnabled(in ACString aCommand);
+
+};
+
+

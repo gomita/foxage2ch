@@ -1,0 +1,76 @@
+<?xml version="1.0" ?>
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css" ?>
+
+<!DOCTYPE dialog SYSTEM "chrome://foxage2ch/locale/showInfo.dtd">
+
+<dialog id="foxage2chInfoDialog"
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        windowtype="FoxAge2ch:ShowInfo"
+        buttons="accept,cancel"
+        style="width: 36em;"
+        onload="ShowInfoUI.init();"
+        ondialogaccept="ShowInfoUI.done();">
+
+	<script type="application/x-javascript" src="chrome://foxage2ch/content/showInfo.js" />
+
+	<stringbundle id="infoBundle" src="chrome://foxage2ch/locale/showInfo.properties" />
+
+	<grid flex="1">
+		<columns>
+			<column />
+			<column flex="1" />
+		</columns>
+		<rows id="infoRows">
+			<row id="titleRow" align="center">
+				<label value="&info.title;:" />
+				<textbox id="titleField" onchange="ShowInfoUI.changed = true;" />
+			</row>
+			<row id="urlRow" align="center" hidden="true">
+				<label value="URL:" />
+				<textbox id="urlField" readonly="true" />
+			</row>
+			<row id="statusRow" align="center" hidden="true">
+				<label value="&info.status;:" />
+				<textbox id="statusField" readonly="true" />
+			</row>
+			<row id="checkDateRow" align="center" hidden="true">
+				<label value="&info.checkDate;:" />
+				<textbox id="checkDateField" readonly="true" />
+			</row>
+			<row id="createdRow" align="center" hidden="true">
+				<label value="&info.created;:" />
+				<textbox id="createdField" readonly="true" />
+			</row>
+			<row id="readResRow" align="center" hidden="true">
+				<label value="&info.readRes;:" />
+				<textbox id="readResField" readonly="true" />
+			</row>
+			<row id="lastResRow" align="center" hidden="true">
+				<label value="&info.lastRes;:" />
+				<textbox id="lastResField" readonly="true" />
+			</row>
+			<row id="maxResRow" align="center" hidden="true">
+				<label value="&info.maxRes;:" />
+				<hbox>
+					<textbox id="maxResField" type="number" maxlength="5" size="5" min="1" max="10000" increment="100"
+					         onchange="ShowInfoUI.changed = true;" />
+					<spacer flex="1" />
+				</hbox>
+			</row>
+		</rows>
+	</grid>
+
+	<vbox id="extra" oncommand="ShowInfoUI.changed = true;" style="margin-top: 10px;">
+		<hbox>
+			<checkbox id="skipField" label="&info.skip;" />
+		</hbox>
+		<hbox>
+			<checkbox id="excludeThreadError" label="&info.excludeThreadError;" />
+			<checkbox id="excludeBoardError" label="&info.excludeBoardError;" />
+		</hbox>
+	</vbox>
+
+	<spacer height="10" />
+
+</dialog>

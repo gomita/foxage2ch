@@ -1,0 +1,27 @@
+/* ::::: OPTIONS ::::: */
+
+radio[pane] {
+	list-style-image: url("chrome://foxage2ch/skin/options.png");
+}
+
+radio[pane="pane1"] {
+	-moz-image-region: rect(0px, 32px, 32px, 0px)
+}
+
+radio[pane="pane2"] {
+	-moz-image-region: rect(0px, 64px, 32px, 32px)
+}
+
+radio[pane] .paneButtonIcon {
+	opacity: 0.8;
+}
+
+radio[pane]:hover .paneButtonIcon,
+radio[pane][selected="true"] .paneButtonIcon {
+	opacity: 1.0;
+}
+
+row > label {
+	text-align: end;
+}
+

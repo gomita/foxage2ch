@@ -1,0 +1,6 @@
+<!ENTITY resultPage.desc "Select thread(s) you want to add and click 'Finish' button.">
+<!ENTITY resultTree.title "Thread Title">
+<!ENTITY resultTree.match "Longest Match">
+<!ENTITY resultTree.lastRes "Total Posts">
+<!ENTITY resultTree.created "Created">
+<!ENTITY resultCheckbox "Delete the original thread">

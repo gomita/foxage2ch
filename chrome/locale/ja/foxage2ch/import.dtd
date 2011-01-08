@@ -1,0 +1,8 @@
+<!ENTITY import.title "インポート">
+<!ENTITY import.note "注意: 現在のデータはインポート時に削除されます。">
+<!ENTITY import.selectApp.desc "インポート元のアプリケーションを選択してください。">
+<!ENTITY import.selectFile.desc "インポート元のファイルを選択してください。">
+<!ENTITY import.selectFile.browse.label "参照">
+<!ENTITY import.selectFile.browse.key "B">
+<!ENTITY import.processing.desc "インポート中です。">
+<!ENTITY import.done.desc "インポート完了。">

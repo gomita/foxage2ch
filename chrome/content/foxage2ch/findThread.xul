@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://foxage2ch/content/bindings.css" type="text/css"?>
+<?xml-stylesheet href="chrome://foxage2ch/skin/foxage2ch.css" type="text/css"?>
+
+<!DOCTYPE wizard [
+	<!ENTITY % mainDTD SYSTEM "chrome://foxage2ch/locale/foxage2ch.dtd" >
+	<!ENTITY % findDTD SYSTEM "chrome://foxage2ch/locale/findThread.dtd" >
+	%mainDTD;
+	%findDTD;
+]>
+
+<wizard id="findThreadWizard"
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        title="FoxAge2ch - &findThread;"
+        windowtype="FoxAge2ch:FindThread"
+        onload="FindThread.init();"
+        onunload="FindThread.done();"
+        onwizardfinish="FindThread.onFinish();"
+        onwizardcancel="FindThread.onCancel();"
+        style="width: 48em; height: 36em;"
+        persist="width height">
+
+	<script type="application/x-javascript" src="chrome://foxage2ch/content/findThread.js" />
+
+	<wizardpage pageid="requestPage" next="resultPage"
+	            label="&findThread;">
+		<textbox id="requestField" readonly="true" style="margin-bottom: 5px;" />
+		<progressmeter id="requestMeter" mode="undetermined" collapsed="true" />
+	</wizardpage>
+
+	<wizardpage pageid="resultPage"
+	            onpageshow="FindThread.onResultPage();"
+	            label="&findThread;" description="&resultPage.desc;">
+		<textbox id="searchFilter" type="search" timeout="500" clickSelectsAll="true"
+		         emptytext="&findThread;" placeholder="&findThread;"
+		         accesskey="&quickSearch.key;"
+		         oncommand="FindThread.doSearch(this.value);" />
+		<tree id="resultTree"
+		      datasources="rdf:null"
+		      ref="urn:root"
+		      flags="dont-build-content"
+		      enableColumnDrag="true"
+		      flex="1" style="margin-top: 5px; margin-bottom: 5px;">
+			<treecols onclick="FindThread.onCycleHeader(event);">
+				<treecol id="titleCol" label="&resultTree.title;" flex="10" primary="true"
+				         class="sortDirectionIndicator"
+				         sort="rdf:http://www.xuldev.org/foxage2ch-rdf#title"
+				         persist="width hidden ordinal" />
+				<splitter class="tree-splitter" />
+				<treecol id="matchCol" label="&resultTree.match;" flex="2"
+				         class="sortDirectionIndicator" sortActive="true" sortDirection="descending"
+				         sort="rdf:http://www.xuldev.org/foxage2ch-rdf#score"
+				         persist="width hidden ordinal" />
+				<splitter class="tree-splitter" />
+				<treecol id="lastResCol" label="&resultTree.lastRes;" flex="1"
+				         class="sortDirectionIndicator"
+				         sort="rdf:http://www.xuldev.org/foxage2ch-rdf#lastRes"
+				         persist="width hidden ordinal" />
+				<splitter class="tree-splitter" />
+				<treecol id="createdCol" label="&resultTree.created;" flex="2" hidden="true"
+				         class="sortDirectionIndicator"
+				         sort="rdf:http://www.xuldev.org/foxage2ch-rdf#created"
+				         persist="width hidden ordinal" />
+			</treecols>
+			<template>
+				<rule>
+					<treechildren>
+						<treeitem uri="*">
+							<treerow properties="rdf:http://www.xuldev.org/foxage2ch-rdf#class">
+								<treecell label="rdf:http://www.xuldev.org/foxage2ch-rdf#title"
+								          properties="Name thread rdf:http://www.xuldev.org/foxage2ch-rdf#class" />
+								<!-- |_sort| attribute enables to sort by score -->
+								<treecell label="rdf:http://www.xuldev.org/foxage2ch-rdf#match"
+								          _sort="rdf:http://www.xuldev.org/foxage2ch-rdf#score"
+								          properties="rdf:http://www.xuldev.org/foxage2ch-rdf#class" />
+								<treecell label="rdf:http://www.xuldev.org/foxage2ch-rdf#lastRes"
+								          properties="rdf:http://www.xuldev.org/foxage2ch-rdf#class" />
+								<treecell label="rdf:http://www.xuldev.org/foxage2ch-rdf#created"
+								          properties="rdf:http://www.xuldev.org/foxage2ch-rdf#class"
+								          hidden="true" />
+							</treerow>
+						</treeitem>
+					</treechildren>
+				</rule>
+			</template>
+		</tree>
+		<checkbox id="resultCheckbox" orglabel="&resultCheckbox;: " />
+	</wizardpage>
+
+</wizard>

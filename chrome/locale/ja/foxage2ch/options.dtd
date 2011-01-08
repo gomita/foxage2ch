@@ -1,0 +1,42 @@
+<!ENTITY prefs.title "設定">
+<!ENTITY prefs.general "一般">
+<!ENTITY prefs.advanced "詳細">
+<!ENTITY prefs.startup "起動">
+<!ENTITY prefs.startupMode.0 "ツールバーボタン左クリック時">
+<!ENTITY prefs.startupMode.1 "ツールバーボタン中クリック時">
+<!ENTITY prefs.startupMode.none "...">
+<!ENTITY prefs.startupMode.sidebar "サイドバーで開く">
+<!ENTITY prefs.startupMode.window "ウィンドウで開く">
+<!ENTITY prefs.startupMode.tab "タブで開く">
+<!ENTITY prefs.startupKey "ショートカットキー">
+<!ENTITY prefs.startupKey.notice "変更は Firefox 再起動後に反映されます。">
+<!ENTITY prefs.treeView "ツリー表示">
+<!ENTITY prefs.viewMode.normal "通常ツリー">
+<!ENTITY prefs.viewMode.vertical "縦型2ペイン">
+<!ENTITY prefs.viewMode.horizontal "横型2ペイン">
+<!ENTITY prefs.viewMode.autodetect "2ペイン (自動判別)">
+<!ENTITY prefs.autoCollapse "板を開くとき、自動的に他の板を閉じる">
+<!ENTITY prefs.warnOnDelete "板やスレッドを削除するときは確認する">
+<!ENTITY prefs.viewer "ビューア">
+<!ENTITY prefs.viewer.default "ビューアを使用しない">
+<!ENTITY prefs.viewer.bbs2ch "bbs2chreader / chaika を使用">
+<!ENTITY prefs.viewer.p2rep2 "p2.2ch.net / rep2 を使用">
+<!ENTITY prefs.checkUpdates "更新チェック">
+<!ENTITY prefs.autoCheckOnStartup "自動更新チェックを起動時にする">
+<!ENTITY prefs.autoCheck.1 "自動更新チェックを">
+<!ENTITY prefs.autoCheck.2 "分おきにする">
+<!ENTITY prefs.maxConn "最大同時接続数">
+<!ENTITY prefs.maxConn.min "( ´∀｀) ﾏﾀｰﾘ">
+<!ENTITY prefs.maxConn.max "(｀･ω･´) ｼｬｷｰﾝ">
+<!ENTITY prefs.loadAfterChecking "更新チェック後、更新されたスレッドを自動的に開く">
+<!ENTITY prefs.openThreads "スレッドを開く">
+<!ENTITY prefs.upwardMargin "レスさかのぼり表示差分">
+<!ENTITY prefs.upwardMargin.all "全件表示">
+<!ENTITY prefs.openThreadInTab "スレッドを新しいタブで開く">
+<!ENTITY prefs.switchToNewTabs "新しいタブで開いたとき、すぐにそのタブに切り替える">
+<!ENTITY prefs.loadInterval "「更新されたスレッドを開く」間隔 (秒)">
+<!ENTITY prefs.dataDir "データ保存先">
+<!ENTITY prefs.dataDir.default "デフォルト (プロファイルフォルダ内)">
+<!ENTITY prefs.dataDir.custom "次のフォルダ">
+<!ENTITY prefs.dataDir.browse "参照">
+<!ENTITY prefs.maxBackups "最大バックアップファイル数">

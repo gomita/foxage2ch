@@ -1,0 +1,10 @@
+#foxage2ch-sidebar-button {
+	list-style-image: url("chrome://foxage2ch/skin/icon-win.png");
+}
+
+#foxage2ch-sidebar-button > .toolbarbutton-icon {
+	margin: 0 !important;
+	width: auto !important;
+	height: auto !important;
+}
+

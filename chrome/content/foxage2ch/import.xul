@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://mozapps/content/preferences/preferences.css"?>
+<?xml-stylesheet href="chrome://browser/skin/preferences/preferences.css"?>
+
+<!DOCTYPE wizard SYSTEM "chrome://foxage2ch/locale/import.dtd">
+
+<wizard id="foxage2chImportWizard"
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        windowtype="FoxAge2ch:Import"
+        title="FoxAge2ch - &import.title;"
+        onload="ImportWizard.init();"
+        onunload="ImportWizard.uninit();">
+
+	<script type="application/x-javascript" src="chrome://foxage2ch/content/import.js" />
+
+	<stringbundle id="importBundle" src="chrome://foxage2ch/locale/import.properties" />
+
+	<wizardpage pageid="selectAppPage"
+	            next="selectFilePage"
+	            label="&import.title;"
+	            description="&import.selectApp.desc;"
+	            onpageshow="ImportWizard.onSelectAppPage();">
+		<radiogroup id="importApp">
+			<radio label="Foxage2ch 2.x" accesskey="F" value="Foxage2ch" selected="true" />
+		</radiogroup>
+		<description style="margin-top: 10px;">&import.note;</description>
+	</wizardpage>
+
+	<wizardpage pageid="selectFilePage"
+	            next="processingPage"
+	            label="&import.title;"
+	            description="&import.selectFile.desc;"
+	            onpageshow="ImportWizard.onSelectFilePage();">
+		<hbox>
+			<filefield id="importFile" flex="1" />
+			<button id="browseButton"
+			        label="&import.selectFile.browse.label;..."
+			        accesskey="&import.selectFile.browse.key;"
+			        filepickerlabel="&import.selectFile.desc;"
+			        oncommand="ImportWizard.selectFile(this);" />
+		</hbox>
+	</wizardpage>
+
+	<wizardpage pageid="processingPage"
+	            next="donePage"
+	            label="&import.title;"
+	            description="&import.processing.desc;"
+	            onpageshow="ImportWizard.onProcessingPage();">
+		<listbox id="importingListbox" flex="1" />
+	</wizardpage>
+
+	<wizardpage pageid="donePage"
+	            label="&import.title;"
+	            description="&import.done.desc;"
+	            onpageshow="ImportWizard.onDonePage();">
+		<description id="doneMessage" />
+	</wizardpage>
+
+</wizard>

@@ -1,0 +1,10 @@
+<!ENTITY info.title "タイトル">
+<!ENTITY info.status "ステータス">
+<!ENTITY info.checkDate "最終チェック">
+<!ENTITY info.created "スレ立て日時">
+<!ENTITY info.readRes "既読レス数">
+<!ENTITY info.lastRes "最新レス数">
+<!ENTITY info.maxRes "最大レス数">
+<!ENTITY info.skip "「更新チェック (すべての板)」の対象外">
+<!ENTITY info.excludeBoardError "エラー通知 (移転 / チェック不可) の対象外">
+<!ENTITY info.excludeThreadError "エラー通知 (dat落ち / 1000レス超過) の対象外">

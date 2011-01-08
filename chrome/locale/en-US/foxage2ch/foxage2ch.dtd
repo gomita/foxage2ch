@@ -1,0 +1,36 @@
+<!ENTITY checkUpdates "Check for Updates">
+<!ENTITY checkUpdates.key "C">
+<!ENTITY openUpdates "Open Updated Threads">
+<!ENTITY openUpdates.key "U">
+<!ENTITY toNextSep "to the next separator">
+<!ENTITY open "Open">
+<!ENTITY open.key "O">
+<!ENTITY openNewTab "Open in New Tab">
+<!ENTITY openNewTab.key "N">
+<!ENTITY fetchTitle "Fetch Title">
+<!ENTITY fetchTitle.key "T">
+<!ENTITY newSeparator "New Separator">
+<!ENTITY newSeparator.key "S">
+<!ENTITY findThread "Find Thread">
+<!ENTITY findThread.key "F">
+<!ENTITY findNextThread "Find Next Thread">
+<!ENTITY transfer "Transfer Wizard">
+<!ENTITY transfer.key "W">
+<!ENTITY delete "Delete">
+<!ENTITY delete.key "D">
+<!ENTITY showInfo "Properties">
+<!ENTITY showInfo.key "I">
+<!ENTITY allBoards "All Boards">
+<!ENTITY toggleFolders "Open / Close All Folders">
+<!ENTITY addURL "Add Thread / Board">
+<!ENTITY addURL.key "A">
+<!ENTITY quickSearch "Quick Search">
+<!ENTITY quickSearch.key "S">
+<!ENTITY tools "Tools">
+<!ENTITY tools.options "Options">
+<!ENTITY tools.threadFilter "Filter Error Threads">
+<!ENTITY tools.findNextAll "Find Next Threads All">
+<!ENTITY tools.dataDir "Open Data Folder">
+<!ENTITY tools.import "Import">
+<!ENTITY tools.restore "Restore from Backup">
+<!ENTITY tools.2chBBS "2ch BBS">

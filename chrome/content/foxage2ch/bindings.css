@@ -1,0 +1,7 @@
+/* ::::: notification ::::: */
+
+notification {
+	-moz-binding: url("chrome://foxage2ch/content/bindings.xml#notification-override");
+}
+
+

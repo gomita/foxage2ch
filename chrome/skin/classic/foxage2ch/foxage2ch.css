@@ -1,0 +1,159 @@
+/* ::::: window ::::: */
+
+#foxage2chWindow[oscpu^="Windows NT 6"]:-moz-system-metric(windows-default-theme) {
+	background-color: #EEF3FA !important;
+}
+
+#foxage2chWindow[platform^="Mac"] {
+	-moz-appearance: none !important;
+	background-color: #d4dde5 !important;
+	border-top: none !important;
+}
+
+
+/* ::::: main toolbar ::::: */
+
+#mainToolbar toolbarbutton:not([type="menu"]) {
+	list-style-image: url("chrome://foxage2ch/skin/toolbar.png");
+}
+
+toolbarbutton:not([type="menu"]) .toolbarbutton-text {
+	display: none;
+}
+
+#checkUpdatesButton  { -moz-image-region: rect(0px, 22px, 22px, 0px);  }
+#openUpdatesButton   { -moz-image-region: rect(0px, 44px, 22px, 22px); }
+#addURLButton        { -moz-image-region: rect(0px, 66px, 22px, 44px); }
+#toggleFoldersButton { -moz-image-region: rect(0px, 88px, 22px, 66px); }
+
+#checkUpdatesButton[disabled="true"] { -moz-image-region: rect(22px, 22px, 44px, 0px);  }
+#openUpdatesButton[disabled="true"]  { -moz-image-region: rect(22px, 44px, 44px, 22px); }
+
+
+/* ::::: search toolbar ::::: */
+
+#searchFilter {
+	margin: 2px 4px;
+}
+
+
+/* ::::: close button ::::: */
+
+.exit-button {
+	-moz-appearance: none;
+	-moz-image-region: rect(0px, 14px, 14px, 0px);
+	padding: 0px 2px;
+	list-style-image: url("chrome://foxage2ch/skin/exit.png");
+}
+
+.exit-button:hover {
+	-moz-image-region: rect(0px, 28px, 14px, 14px);
+}
+
+.exit-button:hover:active {
+	-moz-image-region: rect(0px, 42px, 14px, 28px);
+}
+
+
+/* ::::: tree ::::: */
+
+treechildren::-moz-tree-twisty {
+	-moz-appearance: none !important;
+	padding-right: 0px !important;
+	padding-top  : 0px !important;
+	width: 0px !important;
+	list-style-image: none !important;
+}
+
+treechildren::-moz-tree-image(leaf, thread, primary) {
+	-moz-image-region: rect(0px, 16px, 16px, 0px) !important;
+	list-style-image: url("chrome://foxage2ch/skin/thread.png") !important;
+	width: 16px; height: 16px;
+}
+
+treechildren::-moz-tree-image(leaf, thread, primary, updated) {
+	-moz-image-region: rect(0px, 32px, 16px, 16px) !important;
+	list-style-image: url("chrome://foxage2ch/skin/thread.png") !important;
+	width: 16px; height: 16px;
+}
+
+treechildren::-moz-tree-image(leaf, thread, primary, datout) {
+	-moz-image-region: rect(0px, 48px, 16px, 32px) !important;
+	list-style-image: url("chrome://foxage2ch/skin/thread.png") !important;
+	width: 16px; height: 16px;
+}
+
+treechildren::-moz-tree-image(container, pink) {
+	-moz-image-region: auto !important;
+	list-style-image: url("http://www.bbspink.com/favicon.ico") !important;
+	width: 16px; height: 16px;
+}
+
+treechildren::-moz-tree-image(container, machi) {
+	-moz-image-region: auto !important;
+	list-style-image: url("http://www.machi.to/favicon.ico") !important;
+	width: 16px; height: 16px;
+}
+
+treechildren::-moz-tree-image(container, jbbs) {
+	-moz-image-region: auto !important;
+	list-style-image: url("http://jbbs.livedoor.jp/favicon.ico") !important;
+	width: 16px; height: 16px;
+}
+
+treechildren::-moz-tree-image(checking) {
+	-moz-image-region: auto !important;
+	list-style-image: url("chrome://foxage2ch/skin/loading.png") !important;
+	width: 16px; height: 16px;
+}
+
+treechildren::-moz-tree-cell-text(updated)  { font-weight: bold; }
+treechildren::-moz-tree-cell-text(skip)     { color: chocolate; }
+treechildren::-moz-tree-cell-text(over1000) { color: darkorange; }
+treechildren::-moz-tree-cell-text(datout)   { color: red; }
+treechildren::-moz-tree-cell-text(error)    { color: red; font-weight: bold; }
+treechildren::-moz-tree-cell-text(added)    { color: GrayText; }
+treechildren::-moz-tree-cell-text(exclude)  { color: deeppink; }
+
+treechildren::-moz-tree-drop-feedback {
+	background-color: Highlight;
+	width: 320px;
+	height: 2px;
+}
+
+treechildren::-moz-tree-cell-text(separator) {
+	margin-left: 20px;
+	margin-right: 2px;
+	color: ThreeDShadow;
+}
+
+#foxage2chWindow treechildren::-moz-tree-image(thread, hover),
+#foxage2chWindow treechildren::-moz-tree-cell-text(thread, hover) {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+
+/* ::::: popup ::::: */
+
+#foxage2chContext .menu-iconic-icon {
+	width : 13px !important;
+	height: 13px !important;
+}
+
+menuitem#contextDelete {
+	list-style-image: url("chrome://foxage2ch/skin/menu_delete.png");
+}
+
+menuitem#contextShowInfo {
+	list-style-image: url("chrome://foxage2ch/skin/menu_showinfo.png");
+}
+
+
+/* ::::: notification ::::: */
+
+notification[priority="6"] .messageImage {
+	display: none;
+}
+
+

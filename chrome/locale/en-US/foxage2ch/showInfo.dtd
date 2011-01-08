@@ -1,0 +1,10 @@
+<!ENTITY info.title "Title">
+<!ENTITY info.status "Status">
+<!ENTITY info.checkDate "Check Date">
+<!ENTITY info.created "Created">
+<!ENTITY info.readRes "Read Posts">
+<!ENTITY info.lastRes "Total Posts">
+<!ENTITY info.maxRes "Max Posts">
+<!ENTITY info.skip "Exclude from 'Check for Updates (All Boards)'">
+<!ENTITY info.excludeBoardError "Exclude from error notification (moved / not checkable)">
+<!ENTITY info.excludeThreadError "Exclude from error notification (dat-out / over 1000 posts)">

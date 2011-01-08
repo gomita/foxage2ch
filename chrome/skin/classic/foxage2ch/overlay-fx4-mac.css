@@ -1,0 +1,13 @@
+#foxage2ch-sidebar-button {
+	list-style-image: url("chrome://foxage2ch/skin/icon-mac.png");
+	-moz-image-region: rect(0, 20px, 20px, 0);
+}
+
+#foxage2ch-sidebar-button[checked="true"] {
+	-moz-image-region: rect(20px, 20px, 40px, 0);
+}
+
+#foxage2ch-sidebar-button[checked="true"]:active:hover {
+	-moz-image-region: rect(40px, 20px, 60px, 0);
+}
+

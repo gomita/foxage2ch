@@ -1,0 +1,8 @@
+<!ENTITY import.title "Import">
+<!ENTITY import.note "NOTE: The existing data will be deleted when importing.">
+<!ENTITY import.selectApp.desc "Select application you want to import data from.">
+<!ENTITY import.selectFile.desc "Select file to import.">
+<!ENTITY import.selectFile.browse.label "Browse">
+<!ENTITY import.selectFile.browse.key "B">
+<!ENTITY import.processing.desc "Now importing.">
+<!ENTITY import.done.desc "Import done.">

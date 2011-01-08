@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://foxage2ch/skin/overlay.css" type="text/css"?>
+
+<overlay id="FoxAge2chtasksOverlay"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+	<script type="application/x-javascript" src="chrome://foxage2ch/content/overlay.js" />
+
+	<broadcasterset id="mainBroadcasterSet">
+		<broadcaster id="viewFoxAge2chSidebar"
+		             autoCheck="false"
+		             type="checkbox"
+		             group="sidebar"
+		             sidebarurl="chrome://foxage2ch/content/foxage2ch.xul"
+		             sidebartitle="FoxAge2ch"
+		             onclick="FoxAge2chOverlay.handleEvent(event);"
+		             oncommand="FoxAge2chOverlay.handleEvent(event);" />
+	</broadcasterset>
+
+	<keyset id="mainKeyset">
+		<key id="key_viewFoxAge2chSidebar" key="M" modifiers="accel,shift" command="viewFoxAge2chSidebar" />
+	</keyset>
+
+	<menupopup id="viewSidebarMenu">
+		<menuitem label="FoxAge2ch" observes="viewFoxAge2chSidebar" key="key_viewFoxAge2chSidebar" />
+	</menupopup>
+
+	<toolbarpalette id="BrowserToolbarPalette">
+		<toolbarbutton id="foxage2ch-sidebar-button"
+		               label="FoxAge2ch"
+		               tooltiptext="FoxAge2ch"
+		               observes="viewFoxAge2chSidebar"
+		               class="toolbarbutton-1 chromeclass-toolbar-additional"
+		               ondragenter="FoxAge2chOverlay.handleEvent(event);"
+		               ondragover="FoxAge2chOverlay.handleEvent(event);" />
+	</toolbarpalette>
+
+</overlay>
