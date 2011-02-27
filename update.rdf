@@ -2,21 +2,21 @@
 <RDF:RDF xmlns:em="http://www.mozilla.org/2004/em-rdf#"
          xmlns:NC="http://home.netscape.com/NC-rdf#"
          xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <RDF:Seq RDF:about="rdf:#$8h8yF3">
-    <RDF:li RDF:resource="rdf:#$9h8yF3"/>
-  </RDF:Seq>
-  <RDF:Description RDF:about="urn:mozilla:extension:foxage2ch@xuldev.org"
-                   em:signature="MIGTMA0GCSqGSIb3DQEBDQUAA4GBAAqrwPzymjpWDddElIL5vm5Whx57vbYin++i5uowrxg+1P4I7XGGduts15lKRse1uxx5vWoK3Yy3OrQYo6WG2XVI6BTffoEq/BKcww/+mA2JVkINKI+K33EBgt/VoN09YPEhk4iD1LCb0JOaz7hvMiPoMiOcEUp2OUNa98EjX/dH">
-    <em:updates RDF:resource="rdf:#$8h8yF3"/>
+  <RDF:Description RDF:about="rdf:#$1YQGt1"
+                   em:version="3.2.3">
+    <em:targetApplication RDF:resource="rdf:#$4YQGt1"/>
   </RDF:Description>
-  <RDF:Description RDF:about="rdf:#$ch8yF3"
+  <RDF:Description RDF:about="rdf:#$4YQGt1"
                    em:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
                    em:minVersion="3.5"
                    em:maxVersion="4.0.*"
                    em:updateLink="http://www.xuldev.org/foxage2ch/foxage2ch.xpi"
-                   em:updateHash="sha1:6fcd24d7967eb2651c809a6011bd8c1d85e32cfd" />
-  <RDF:Description RDF:about="rdf:#$9h8yF3"
-                   em:version="3.2.2">
-    <em:targetApplication RDF:resource="rdf:#$ch8yF3"/>
+                   em:updateHash="sha1:27547c542f012e5510f0f91b6310144dcf08ae6b" />
+  <RDF:Seq RDF:about="rdf:#$0YQGt1">
+    <RDF:li RDF:resource="rdf:#$1YQGt1"/>
+  </RDF:Seq>
+  <RDF:Description RDF:about="urn:mozilla:extension:foxage2ch@xuldev.org"
+                   em:signature="MIGTMA0GCSqGSIb3DQEBDQUAA4GBAIRtgi5PGvfASYyJidfO+1i4wVVbxVX8h4Mbo28DM0J6mjRrlq4vIQ3Xkm09meHcmQWQaytgGjpVO98z7jUwmeYsyWS7KbqU16FisYL2EirMHGyVo5q5rBATJtZWGQmwbpKJA4Do/j75+roR0Q6IsZB98KW1depsvQC9c+BNP8xl">
+    <em:updates RDF:resource="rdf:#$0YQGt1"/>
   </RDF:Description>
 </RDF:RDF>
