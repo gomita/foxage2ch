@@ -42,7 +42,10 @@ var TransferWizard = {
 				return;
 			}
 			try {
-				this.owner.doTransfer(RegExp.$1);
+				var newURL = RegExp.$1;
+				// fix issue#2
+				newURL = newURL.replace("http://pele.2ch.net/", "http://pele.bbspink.com/");
+				this.owner.doTransfer(newURL);
 			}
 			catch (ex) {
 				this._errorCallback(ex);
