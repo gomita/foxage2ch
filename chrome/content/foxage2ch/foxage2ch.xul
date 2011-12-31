@@ -11,12 +11,15 @@
         title="FoxAge2ch"
         windowtype="FoxAge2ch"
         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
         onload="FoxAge2chUI.init();"
         onbeforeunload="FoxAge2chUI.uninit();"
         onclose="FoxAge2chUI.uninit();"
         onunload="FoxAge2chUI.uninit();"
         width="300" height="500" screenX="15" screenY="15"
         persist="width height screenX screenY sizemode">
+
+	<xhtml:link rel="shortcut icon" href="chrome://foxage2ch/skin/icon16.png" />
 
 	<script type="application/x-javascript" src="chrome://foxage2ch/content/foxage2ch.js" />
 	<script type="application/x-javascript" src="chrome://foxage2ch/content/treeView.js" />

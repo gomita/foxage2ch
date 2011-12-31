@@ -1,3 +1,11 @@
+/* @see chrome://mozapps/content/extensions/extensions.css */
+
+@namespace xhtml "http://www.w3.org/1999/xhtml";
+
+xhtml|link {
+	display: none;
+}
+
 /* ::::: notification ::::: */
 
 notification {
