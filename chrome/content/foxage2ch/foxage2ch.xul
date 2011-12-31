@@ -19,7 +19,7 @@
         width="300" height="500" screenX="15" screenY="15"
         persist="width height screenX screenY sizemode">
 
-	<xhtml:link rel="shortcut icon" href="chrome://foxage2ch/skin/icon16.png" />
+	<xhtml:link rel="shortcut icon" href="chrome://foxage2ch/skin/icon16.png" style="display: none;" />
 
 	<script type="application/x-javascript" src="chrome://foxage2ch/content/foxage2ch.js" />
 	<script type="application/x-javascript" src="chrome://foxage2ch/content/treeView.js" />
