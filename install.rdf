@@ -19,7 +19,6 @@
 				<em:homepageURL>http://www.xuldev.org/foxage2ch/</em:homepageURL>
 			</Description>
 		</em:localized>
-		<em:iconURL>chrome://foxage2ch/skin/icon32.png</em:iconURL>
 		<em:optionsURL>chrome://foxage2ch/content/options.xul</em:optionsURL>
 		<em:homepageURL>http://www.xuldev.org/foxage2ch/</em:homepageURL>
 		<em:updateURL>http://www.xuldev.org/foxage2ch/update.rdf</em:updateURL>
