@@ -20,6 +20,8 @@
         persist="width height screenX screenY sizemode">
 
 	<xhtml:link rel="shortcut icon" href="chrome://foxage2ch/skin/icon16.png" style="display: none;" />
+	<xhtml:link rel="stylesheet" type="text/css" href="chrome://global/skin/inContentUI.css" style="display: none;"
+	            id="inContentCSS" media="none" />
 
 	<script type="application/x-javascript" src="chrome://foxage2ch/content/foxage2ch.js" />
 	<script type="application/x-javascript" src="chrome://foxage2ch/content/treeView.js" />

@@ -26,6 +26,8 @@ var FoxAge2chOverlay = {
 			else
 				elt.parentNode.removeChild(elt);
 		}
+		if (XULBrowserWindow.inContentWhitelist.indexOf(this.URL) < 0)
+			XULBrowserWindow.inContentWhitelist.push(this.URL);
 	},
 
 	handleEvent: function(event) {
