@@ -236,13 +236,13 @@ FoxAge2chTreeView.prototype = {
 	// ドラッグ中ではない場合や転送データにtext/x-moz-tree-index形式のデータが含まれない場合-1を返す。
 	getSourceIndexFromDrag: function TV_getSourceIndexFromDrag(dataTransfer) {
 		if (dataTransfer) {
-			// [Firefox3.6]
+			// canDrop, drop からの呼び出し
 			if (!dataTransfer.types.contains(FoxAge2chUtils.DROP_TYPE))
 				return -1;
 			else
 				return parseInt(dataTransfer.getData(FoxAge2chUtils.DROP_TYPE));
 		}
-		// [Firefox3.5]
+		// toggleOpenState からの呼び出し
 		if (!FoxAge2chUtils.dragSession)
 			return -1;
 		var xferData = Cc["@mozilla.org/widget/transferable;1"].createInstance(Ci.nsITransferable);
