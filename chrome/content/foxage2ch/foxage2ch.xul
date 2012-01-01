@@ -100,8 +100,7 @@
 	</hbox>
 	<hbox id="searchToolbar" align="center">
 		<textbox id="searchFilter" type="search" timeout="500" clickSelectsAll="true"
-		         emptytext="&quickSearch;" placeholder="&quickSearch;"
-		         accesskey="&quickSearch.key;"
+		         placeholder="&quickSearch;" accesskey="&quickSearch.key;"
 		         oncommand="FoxAge2chUI.onSearchFilterInput(this.value);"
 		         flex="1" />
 	</hbox>

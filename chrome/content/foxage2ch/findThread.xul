@@ -34,8 +34,7 @@
 	            onpageshow="FindThread.onResultPage();"
 	            label="&findThread;" description="&resultPage.desc;">
 		<textbox id="searchFilter" type="search" timeout="500" clickSelectsAll="true"
-		         emptytext="&findThread;" placeholder="&findThread;"
-		         accesskey="&quickSearch.key;"
+		         placeholder="&findThread;" accesskey="&quickSearch.key;"
 		         oncommand="FindThread.doSearch(this.value);" />
 		<tree id="resultTree"
 		      datasources="rdf:null"
