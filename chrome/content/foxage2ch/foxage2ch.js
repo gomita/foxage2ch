@@ -92,12 +92,14 @@ var FoxAge2chUI = {
 			FoxAge2chService.checkUpdates("root");
 		document.documentElement.setAttribute("platform", navigator.platform);
 		document.documentElement.setAttribute("oscpu", navigator.oscpu);
-		// タブで開いた場合、特別なスタイルを追加
-		var win = this.windowMediator.getMostRecentWindow("navigator:browser");
-		var tab = win.gBrowser._getTabForContentWindow(window);
-		if (tab) {
-			document.getElementById("inContentCSS").setAttribute("media", "all");
-			document.documentElement.style.padding = "0px";
+		// [Windows][Linux] タブで開いた場合、特別なスタイルを追加
+		if (navigator.platform.indexOf("Mac") != 0) {
+			var win = this.windowMediator.getMostRecentWindow("navigator:browser");
+			var tab = win.gBrowser._getTabForContentWindow(window);
+			if (tab) {
+				document.getElementById("inContentCSS").setAttribute("media", "all");
+				document.documentElement.style.padding = "0px";
+			}
 		}
 	},
 
