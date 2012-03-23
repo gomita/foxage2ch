@@ -2,21 +2,21 @@
 <RDF:RDF xmlns:em="http://www.mozilla.org/2004/em-rdf#"
          xmlns:NC="http://home.netscape.com/NC-rdf#"
          xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <RDF:Description RDF:about="rdf:#$mmTKH3"
-                   em:version="3.3">
-    <em:targetApplication RDF:resource="rdf:#$pmTKH3"/>
+  <RDF:Description RDF:about="rdf:#$2Z58B2"
+                   em:version="3.3.1">
+    <em:targetApplication RDF:resource="rdf:#$5Z58B2"/>
   </RDF:Description>
-  <RDF:Seq RDF:about="rdf:#$lmTKH3">
-    <RDF:li RDF:resource="rdf:#$mmTKH3"/>
+  <RDF:Seq RDF:about="rdf:#$1Z58B2">
+    <RDF:li RDF:resource="rdf:#$2Z58B2"/>
   </RDF:Seq>
   <RDF:Description RDF:about="urn:mozilla:extension:foxage2ch@xuldev.org"
-                   em:signature="MIGTMA0GCSqGSIb3DQEBDQUAA4GBACdHFVDKBoe6gqV6TTodVGQD6AVivrmnGgpj4uqH0kmmOa7H69F485AkBFLYR0tg/aV3ssEP/kCkXYfviEFwrriPqaYyEcAyGmHTnVXXzwgfl037umAGqGF0HSLbegELqw6siYdDBSir08RAAIjqVpp+mlczCespza8Uk/MUui50">
-    <em:updates RDF:resource="rdf:#$lmTKH3"/>
+                   em:signature="MIGTMA0GCSqGSIb3DQEBDQUAA4GBAGTBpDOnoiFLTYZ/DtNjNY83syRTUaYGbSwvPrxbmwKWEywHjKUV/xv6ath9Ux/DreUXee8dfEt1WxK43BKqezVzcbe8jGR0L4c+PsniHyPpzHE6sTBWrrvN6pbgSe4UP4RbGAw7SQrbUoln0MkjKdcQnnuITi0DvL0oeHMBlq9a">
+    <em:updates RDF:resource="rdf:#$1Z58B2"/>
   </RDF:Description>
-  <RDF:Description RDF:about="rdf:#$pmTKH3"
+  <RDF:Description RDF:about="rdf:#$5Z58B2"
                    em:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
                    em:minVersion="8.0"
-                   em:maxVersion="12.0a1"
+                   em:maxVersion="14.0a1"
                    em:updateLink="http://www.xuldev.org/foxage2ch/foxage2ch.xpi"
-                   em:updateHash="sha1:15e77e3623bdc236e9d342a5d62a02f7b33fbbff" />
+                   em:updateHash="sha1:72f57da9460231bae72bd9bba5b8aaca8edfd6b3" />
 </RDF:RDF>
