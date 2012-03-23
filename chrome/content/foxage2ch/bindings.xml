@@ -9,7 +9,7 @@
 	<binding id="notification-override" extends="chrome://global/content/bindings/notification.xml#notification">
 		<content>
 			<xul:hbox class="notification-inner outset" align="center" flex="1" xbl:inherits="type">
-				<xul:image anonid="messageImage" class="messageImage" xbl:inherits="src=image" />
+				<xul:image anonid="messageImage" class="messageImage" xbl:inherits="src=image,type,value" />
 				<xul:label anonid="messageText" class="messageText" crop="end" flex="1"
 				           xbl:inherits="value=label" />
 				<xul:spacer />
