@@ -5,22 +5,15 @@ skin	foxage2ch	classic/1.0	chrome/skin/classic/foxage2ch/
 
 overlay	chrome://browser/content/browser.xul	chrome://foxage2ch/content/overlay.xul
 
-# [Firefox3.6]
-style	chrome://browser/content/browser.xul	chrome://foxage2ch/skin/overlay-fx3.css	appversion<4.0a1pre
-style	chrome://global/content/customizeToolbar.xul	chrome://foxage2ch/skin/overlay-fx3.css	appversion<4.0a1pre
-# [Firefox4][Windows]
-style	chrome://browser/content/browser.xul	chrome://foxage2ch/skin/overlay-fx4-win.css	appversion>=4.0a1pre	os=WINNT
-style	chrome://global/content/customizeToolbar.xul	chrome://foxage2ch/skin/overlay-fx4-win.css	appversion>=4.0a1pre	os=WINNT
-# [Firefox4][Mac]
-style	chrome://browser/content/browser.xul	chrome://foxage2ch/skin/overlay-fx4-mac.css	appversion>=4.0a1pre	os=Darwin
-style	chrome://global/content/customizeToolbar.xul	chrome://foxage2ch/skin/overlay-fx4-mac.css	appversion>=4.0a1pre	os=Darwin
-# [Firefox4][Linux]
-style	chrome://browser/content/browser.xul	chrome://foxage2ch/skin/overlay-fx4-linux.css	appversion>=4.0a1pre	os=Linux
-style	chrome://global/content/customizeToolbar.xul	chrome://foxage2ch/skin/overlay-fx4-linux.css	appversion>=4.0a1pre	os=Linux
+style	chrome://browser/content/browser.xul	chrome://foxage2ch/skin/overlay-win.css	os=WINNT
+style	chrome://browser/content/browser.xul	chrome://foxage2ch/skin/overlay-mac.css	os=Darwin
+style	chrome://browser/content/browser.xul	chrome://foxage2ch/skin/overlay-linux.css	os=Linux
+style	chrome://global/content/customizeToolbar.xul	chrome://foxage2ch/skin/overlay-win.css	os=WINNT
+style	chrome://global/content/customizeToolbar.xul	chrome://foxage2ch/skin/overlay-mac.css	os=Darwin
+style	chrome://global/content/customizeToolbar.xul	chrome://foxage2ch/skin/overlay-linux.css	os=Linux
 
 resource	foxage2ch	modules/
 
-# [Firefox4]
 interfaces	components/foxage2ch.xpt
 component	{19d6d8b4-bd62-45f2-b8fa-c4a58b0f9fbe}	components/service.js
 contract	@xuldev.org/foxage2ch/service;1	{19d6d8b4-bd62-45f2-b8fa-c4a58b0f9fbe}

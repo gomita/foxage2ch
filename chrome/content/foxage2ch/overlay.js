@@ -85,45 +85,10 @@ var FoxAge2chOverlay = {
 				break;
 			case 3: 
 				// タブで開く
-				if ("switchToTabHavingURI" in window)
-					// [Firefox4]
-					switchToTabHavingURI(this.URL, true);
-				else
-					// [Firefox3.6]
-					this._switchToTabHavingURI(makeURI(this.URL));
+				switchToTabHavingURI(this.URL, true);
 				break;
 			default: 
 		}
-	},
-
-	_switchToTabHavingURI: function(aURI) {
-		// 指定したウィンドウに同一URLのタブが存在するか調べる関数
-		function switchIfURIInWindow(aWindow) {
-			var browsers = aWindow.gBrowser.browsers;
-			for (var i = 0; i < browsers.length; i++) {
-				var browser = browsers[i];
-				if (browser.currentURI.equals(aURI)) {
-					aWindow.focus();
-					aWindow.gBrowser.tabContainer.selectedIndex = i;
-					return true;
-				}
-			}
-			return false;
-		}
-		// 現在のウィンドウを優先して調べる
-		if (switchIfURIInWindow(window))
-			return;
-		// 他のすべてのウィンドウを調べる
-		var winEnum = this.windowMediator.getEnumerator("navigator:browser");
-		while (winEnum.hasMoreElements()) {
-			var win = winEnum.getNext();
-			if (win.closed || win == window)
-				continue;
-			if (switchIfURIInWindow(win))
-				return;
-		}
-		// 新しいタブを開く
-		gBrowser.selectedTab = gBrowser.addTab(aURI.spec);
 	},
 
 };

@@ -346,23 +346,14 @@ var FoxAge2chUtils = {
 	get userAgent() {
 		const EXT_ID = "foxage2ch@xuldev.org";
 		const UA_PREFIX = "Monazilla/1.00";
-		if (this.fuelApp.extensions) {
-			// [Firefox3.6]
-			var ext = this.fuelApp.extensions.get(EXT_ID);
-			delete this.userAgent;
-			return this.userAgent = UA_PREFIX + " (" + ext.name + "/" + ext.version + ")";
-		}
-		else {
-			// [Firefox4]
-			Components.utils.import("resource://gre/modules/AddonManager.jsm");
-			AddonManager.getAddonByID(EXT_ID, function(ext) {
-				FoxAge2chUtils.trace("*** AddonManager.getAddonByID(" + ext.id + ")");	// #debug
-				delete FoxAge2chUtils.userAgent;
-				return FoxAge2chUtils.userAgent = UA_PREFIX + " (" + ext.name + "/" + ext.version + ")";
-			});
-			// 非同期で拡張機能の情報を取得するまでのフォールバック
-			return UA_PREFIX;
-		}
+		Components.utils.import("resource://gre/modules/AddonManager.jsm");
+		AddonManager.getAddonByID(EXT_ID, function(ext) {
+			FoxAge2chUtils.trace("*** AddonManager.getAddonByID(" + ext.id + ")");	// #debug
+			delete FoxAge2chUtils.userAgent;
+			return FoxAge2chUtils.userAgent = UA_PREFIX + " (" + ext.name + "/" + ext.version + ")";
+		});
+		// 非同期で拡張機能の情報を取得するまでのフォールバック
+		return UA_PREFIX;
 	},
 
 	// 拡張機能bbs2chreader / chaikaがインストールされていおり、なおかつ有効である場合、
@@ -514,7 +505,7 @@ var FoxAge2chUtils = {
 
 };
 
-// [Firefox4] モジュールがインポートされた直後にUser-Agentを初期化
+// モジュールがインポートされた直後にUser-Agentを初期化
 FoxAge2chUtils.userAgent;
 
 

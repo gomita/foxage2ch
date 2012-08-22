@@ -1094,11 +1094,6 @@ var AutoCheck = {
 ////////////////////////////////////////////////////////////////////////////////
 // XPCOM サービス登録
 
-if (XPCOMUtils.generateNSGetFactory)
-	// [Firefox4]
-	var NSGetFactory = XPCOMUtils.generateNSGetFactory([FoxAge2chService]);
-else
-	// [Firefox3.6]
-	var NSGetModule = XPCOMUtils.generateNSGetModule([FoxAge2chService]);
+var NSGetFactory = XPCOMUtils.generateNSGetFactory([FoxAge2chService]);
 
 
