@@ -94,10 +94,10 @@ var FoxAge2chUtils = {
 		return this.bbs2chService = svc;
 	},
 
-	// fuelIApplication
-	get fuelApp() {
-		delete this.fuelApp;
-		return this.fuelApp = Cc["@mozilla.org/fuel/application;1"].getService(Ci.fuelIApplication);
+	// nsIConsoleService
+	get console() {
+		delete this.console;
+		return this.console = Cc["@mozilla.org/consoleservice;1"].getService(Ci.nsIConsoleService);
 	},
 
 	// nsIDragSession
@@ -455,12 +455,13 @@ var FoxAge2chUtils = {
 
 	// エラーコンソールへ文字列を出力し、エラーコンソールを開く
 	reportError: function F2U_reportError(aMessage, aOpenConsole) {
-		var consoleSvc = Cc["@mozilla.org/consoleservice;1"].getService(Ci.nsIConsoleService);
 		var err = Cc["@mozilla.org/scripterror;1"].createInstance(Ci.nsIScriptError);
 		err.init(aMessage, null, null, null, null, err.errorFlag, "XPConnect JavaScript");
-		consoleSvc.logMessage(err);
-		if (aOpenConsole === undefined || aOpenConsole)
-			this.fuelApp.console.open();
+		this.console.logMessage(err);
+		if (aOpenConsole === undefined || aOpenConsole) {
+			var fuelApp = Cc["@mozilla.org/fuel/application;1"].getService(Ci.fuelIApplication);
+			fuelApp.console.open();
+		}
 	},
 
 	// window.alert相当
@@ -499,7 +500,7 @@ var FoxAge2chUtils = {
 		var name = arguments.callee.caller.name;
 		var args = Array.prototype.slice.call(arguments.callee.caller.arguments).join(", ");
 		var time = new Date().toLocaleTimeString();
-		this.fuelApp.console.log(aMsg + name + " (" + args + ") " + time);
+		this.console.logStringMessage(aMsg + name + " (" + args + ") " + time);
 	},
 	// #debug-end
 

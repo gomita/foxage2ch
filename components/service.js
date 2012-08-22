@@ -135,7 +135,7 @@ FoxAge2chService.prototype = {
 			if (backupFile.exists())
 				return;
 			this._dataFile.copyTo(backupDir, backupFileName);
-			FoxAge2chUtils.fuelApp.console.log("Create new backup file: " + backupFileName);	// #debug
+			FoxAge2chUtils.trace("Create new backup file: " + backupFileName);	// #debug
 			// 古いバックアップファイルを削除
 			var backupNames = [];
 			var entries = backupDir.directoryEntries;
@@ -152,7 +152,7 @@ FoxAge2chService.prototype = {
 				let backupFile = backupDir.clone();
 				backupFile.append(backupName);
 				backupFile.remove(false);
-				FoxAge2chUtils.fuelApp.console.log("Remove old backup file: " + backupFile.leafName);	// #debug
+				FoxAge2chUtils.trace("Remove old backup file: " + backupFile.leafName);	// #debug
 			}
 		}
 		catch (ex) {
@@ -646,7 +646,7 @@ FoxAge2chService.prototype = {
 			if (threadItem.readRes < b2rReadRes) {
 				// #debug-begin
 				var msg = "sync with bbs2ch storage: " + threadItem.readRes + " > " + b2rReadRes + "\t" + threadItem.title;
-				FoxAge2chUtils.fuelApp.console.log(msg);
+				FoxAge2chUtils.trace(msg);
 				// #debug-end
 				this.changeItemProperty(threadItem, "readRes", b2rReadRes);
 				this.changeItemProperty(threadItem, "lastRes", b2rReadRes);
@@ -673,7 +673,7 @@ FoxAge2chService.prototype = {
 			if (threadItem.readRes < lineCount) {
 				// #debug-begin
 				var msg = "sync with chaika storage: " + threadItem.readRes + " > " + lineCount + "\t" + threadItem.title;
-				FoxAge2chUtils.fuelApp.console.log(msg);
+				FoxAge2chUtils.trace(msg);
 				// #debug-end
 				this.changeItemProperty(threadItem, "readRes", lineCount);
 				this.changeItemProperty(threadItem, "lastRes", lineCount);
