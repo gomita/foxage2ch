@@ -7,7 +7,7 @@
 		<em:id>foxage2ch@xuldev.org</em:id>
 		<em:type>2</em:type>
 		<em:name>FoxAge2ch</em:name>
-		<em:version>3.3.1</em:version>
+		<em:version>3.3.2</em:version>
 		<em:description>2ch BBS Update Checker</em:description>
 		<em:creator>Gomita</em:creator>
 		<em:localized>
@@ -27,8 +27,8 @@
 		<em:targetApplication>
 			<Description>
 				<em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
-				<em:minVersion>8.0</em:minVersion>
-				<em:maxVersion>14.0a1</em:maxVersion>
+				<em:minVersion>12.0</em:minVersion>
+				<em:maxVersion>17.0a1</em:maxVersion>
 			</Description>
 		</em:targetApplication>
 	</Description>
