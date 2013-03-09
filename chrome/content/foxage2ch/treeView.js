@@ -317,9 +317,16 @@ FoxAge2chTreeView.prototype = {
 			atoms.push("over1000");
 		if (item.exclude)
 			atoms.push("exclude");
-		atoms.forEach(function(atom) {
-			properties.AppendElement(this.atomSvc.getAtom(atom));
-		}, this);
+		if (properties) {
+			// [Firefox21]
+			atoms.forEach(function(atom) {
+				properties.AppendElement(this.atomSvc.getAtom(atom));
+			}, this);
+		}
+		else {
+			// [Firefox22]
+			return atoms.join(" ");
+		}
 	},
 	getColumnProperties: function TV_getColumnProperties(col, properties) {},
 	isContainer: function TV_isContainer(index) {
