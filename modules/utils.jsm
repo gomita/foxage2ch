@@ -336,6 +336,9 @@ var FoxAge2chUtils = {
 				!browser.webProgress.isLoadingDocument)
 				aInNewTab = false;
 		}
+		// ピン留めしたタブを上書きしない
+		if (!aInNewTab && tabBrowser.mCurrentTab.pinned)
+			aInNewTab = true;
 		if (aInNewTab)
 			tabBrowser.loadOneTab(aURL, null, null, null, aInBackground, false);
 		else
