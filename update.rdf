@@ -2,21 +2,21 @@
 <RDF:RDF xmlns:em="http://www.mozilla.org/2004/em-rdf#"
          xmlns:NC="http://home.netscape.com/NC-rdf#"
          xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <RDF:Description RDF:about="rdf:#$11izF3"
-                   em:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
-                   em:minVersion="12.0"
-                   em:maxVersion="22.0a1"
-                   em:updateLink="http://www.xuldev.org/foxage2ch/foxage2ch.xpi"
-                   em:updateHash="sha1:00f0f727172df17ca10df0a20203bf44babb7d97" />
-  <RDF:Description RDF:about="rdf:#$.0izF3"
-                   em:version="3.3.3">
-    <em:targetApplication RDF:resource="rdf:#$11izF3"/>
-  </RDF:Description>
-  <RDF:Seq RDF:about="rdf:#$Z0izF3">
-    <RDF:li RDF:resource="rdf:#$.0izF3"/>
+  <RDF:Seq RDF:about="rdf:#$e0Y563">
+    <RDF:li RDF:resource="rdf:#$f0Y563"/>
   </RDF:Seq>
-  <RDF:Description RDF:about="urn:mozilla:extension:foxage2ch@xuldev.org"
-                   em:signature="MIGTMA0GCSqGSIb3DQEBDQUAA4GBAKIbR+4s8CsZlNl4DiZxL/juMt46Rrf4CLP6aKorIuLlTMkeg9wa3D27OvDo5KARkqh+sbUbWEseN5YPDy2pN8idjpy2uBOHXQ06jlPHorWNgIN2spGtMFPpavLLcRIqfi8AMfntx5MEOd1ii43tgZ1kBVwr7lii5yRqkh8S7Y4M">
-    <em:updates RDF:resource="rdf:#$Z0izF3"/>
+  <RDF:Description RDF:about="rdf:#$f0Y563"
+                   em:version="3.3.4">
+    <em:targetApplication RDF:resource="rdf:#$i0Y563"/>
   </RDF:Description>
+  <RDF:Description RDF:about="urn:mozilla:extension:foxage2ch@xuldev.org"
+                   em:signature="MIGTMA0GCSqGSIb3DQEBDQUAA4GBAE5+I/QyMZzDe75m+BxsfKXZpkWXKjiRC6pxMBc2CHPfqY52QarVHMBomV6ALB2EDqKgEulernsEnr7AOwuF+MYHYfk6vcIqymlNWa4YQfi9+PMF34l0lssk7riy+iV2bYsyiw6MLT7h7WjlJxg8DX3EGMhuA/freNUY+sEaGPmC">
+    <em:updates RDF:resource="rdf:#$e0Y563"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="rdf:#$i0Y563"
+                   em:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+                   em:minVersion="17.0"
+                   em:maxVersion="24.0a1"
+                   em:updateLink="http://www.xuldev.org/foxage2ch/foxage2ch.xpi"
+                   em:updateHash="sha1:109a91648067f9097b39717b6faf488d2db510c4" />
 </RDF:RDF>
