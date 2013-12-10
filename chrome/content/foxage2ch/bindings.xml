@@ -13,7 +13,7 @@
 				<xul:label anonid="messageText" class="messageText" crop="end" flex="1"
 				           xbl:inherits="value=label" />
 				<xul:spacer />
-				<xul:toolbarbutton class="messageCloseButton tabbable"
+				<xul:toolbarbutton class="messageCloseButton close-icon tabbable"
 				                   oncommand="document.getBindingParent(this).close();" />
 			</xul:hbox>
 		</content>

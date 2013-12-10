@@ -45,6 +45,9 @@ var FoxAge2chOverlay = {
 						elt = elt.parentNode;
 					}
 				}
+				// [Firefox28+] Panel UI内のボタンを中クリック時、Panel UIを閉じる
+				if (event.target.getAttribute("cui-areatype") == "menu-panel")
+					PanelUI.hide();
 				break;
 			case "command": 
 				// sourceEventの有無でクリック由来かキーボードショートカット由来かを判別

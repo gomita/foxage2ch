@@ -1,0 +1,11 @@
+#foxage2ch-sidebar-button {
+	list-style-image: url("chrome://foxage2ch/skin/button18.png");
+}
+
+/* ::::: [Firefox28+] Panel UI ::::: */
+
+#foxage2ch-sidebar-button[cui-areatype="menu-panel"],
+#customization-palette toolbarpaletteitem[place="palette"] > #foxage2ch-sidebar-button {
+	list-style-image: url("chrome://foxage2ch/skin/button32.png");
+}
+

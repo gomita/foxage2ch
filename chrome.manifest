@@ -5,12 +5,18 @@ skin	foxage2ch	classic/1.0	chrome/skin/classic/foxage2ch/
 
 overlay	chrome://browser/content/browser.xul	chrome://foxage2ch/content/overlay.xul
 
-style	chrome://browser/content/browser.xul	chrome://foxage2ch/skin/overlay-win.css	os=WINNT
-style	chrome://browser/content/browser.xul	chrome://foxage2ch/skin/overlay-mac.css	os=Darwin
-style	chrome://browser/content/browser.xul	chrome://foxage2ch/skin/overlay-linux.css	os=Linux
-style	chrome://global/content/customizeToolbar.xul	chrome://foxage2ch/skin/overlay-win.css	os=WINNT
-style	chrome://global/content/customizeToolbar.xul	chrome://foxage2ch/skin/overlay-mac.css	os=Darwin
-style	chrome://global/content/customizeToolbar.xul	chrome://foxage2ch/skin/overlay-linux.css	os=Linux
+style	chrome://browser/content/browser.xul	chrome://foxage2ch/skin/overlay.css
+style	chrome://global/content/customizeToolbar.xul	chrome://foxage2ch/skin/overlay.css
+
+# [Firefox27-]
+override	chrome://foxage2ch/skin/overlay.css	chrome/skin/classic/foxage2ch/overlay-linux.css	os=Linux	appversion<28.0a1
+override	chrome://foxage2ch/skin/overlay.css	chrome/skin/classic/foxage2ch/overlay-mac.css	os=Darwin	appversion<28.0a1
+
+# [Firefox28+]
+override	chrome://foxage2ch/skin/button18.png	chrome/skin/classic/foxage2ch/button18-linux.png	os=WINNT	osversion<6	appversion>=28.0a1
+override	chrome://foxage2ch/skin/button18.png	chrome/skin/classic/foxage2ch/button18-linux.png	os=Linux	appversion>=28.0a1
+override	chrome://foxage2ch/skin/button18.png	chrome/skin/classic/foxage2ch/button18-mac.png	os=Darwin	appversion>=28.0a1
+override	chrome://foxage2ch/skin/button32.png	chrome/skin/classic/foxage2ch/button32-mac.png	os=Darwin	appversion>=28.0a1
 
 resource	foxage2ch	modules/
 
