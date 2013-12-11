@@ -97,7 +97,7 @@ treechildren::-moz-tree-image(container, machi) {
 
 treechildren::-moz-tree-image(container, jbbs) {
 	-moz-image-region: auto !important;
-	list-style-image: url("http://jbbs.livedoor.jp/favicon.ico") !important;
+	list-style-image: url("http://jbbs.shitaraba.net/favicon.ico") !important;
 	width: 16px; height: 16px;
 }
 
