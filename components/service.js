@@ -95,6 +95,14 @@ FoxAge2chService.prototype = {
 			istream.init(this._dataFile, 1, 0, false);
 			this._allItems = this.jsonParser.decodeFromStream(istream, istream.available());
 			istream.close();
+			// したらば移転対応
+			this._allItems.forEach(function(item) {
+				if (!item.id.startsWith("jbbs.livedoor.jp"))
+					return;
+				item.id = item.id.replace("jbbs.livedoor.jp", "jbbs.shitaraba.net");
+				item.parent = item.parent.replace("jbbs.livedoor.jp", "jbbs.shitaraba.net");
+				FoxAge2chUtils.trace("Shitaraba migration: " + item.id);	// #debug
+			});
 			this._updateIndexForItemId();
 		}
 		catch (ex) {

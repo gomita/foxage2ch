@@ -212,7 +212,7 @@ var FoxAge2chUtils = {
 				null
 			];
 		else if (/^\w+\.(?:2ch\.net|bbspink\.com|machi\.to)\/\w+\//.test(aURL) || 
-		         /^jbbs\.livedoor\.jp\/\w+\/\d+\//.test(aURL))
+		         /^jbbs\.shitaraba\.net\/\w+\/\d+\//.test(aURL))
 			// ２ちゃんねる板・まちBBS板・したらば板
 			return [
 				aURL.substr(0, aURL.lastIndexOf("/")),
@@ -271,7 +271,7 @@ var FoxAge2chUtils = {
 			return baseURL + "read.php?host=" + host + "&bbs=" + bbs + "&key=" + key + "&ls=";
 		}
 		var url = "http://";
-		if (host == "jbbs.livedoor.jp")
+		if (host == "jbbs.shitaraba.net")
 			url += host + "/bbs/read.cgi/" + path + "/" + bbs + "/" + key + "/";
 		else if (host.lastIndexOf(".machi.to") > 0)
 			url += host + "/bbs/read.cgi/" + bbs + "/" + key + "/";
@@ -400,7 +400,7 @@ var FoxAge2chUtils = {
 			bbs = this.BBS_PINK;
 		else if (aItemId.indexOf(".machi.to") >= 0)
 			bbs = this.BBS_MACHI;
-		else if (aItemId.indexOf("jbbs.livedoor.jp") >= 0)
+		else if (aItemId.indexOf("jbbs.shitaraba.net") >= 0)
 			bbs = this.BBS_JBBS;
 		return {
 			id: aItemId,
@@ -560,7 +560,7 @@ HTTPRequest.prototype = {
 		this._request.QueryInterface(Ci.nsIXMLHttpRequest);
 		this._request.open("GET", aURL, true);
 		this._request.setRequestHeader("User-Agent", FoxAge2chUtils.userAgent);
-		this._request.channel.contentCharset = aURL.indexOf("jbbs.livedoor.jp") >= 0 ? "EUC-JP" : "Shift_JIS";
+		this._request.channel.contentCharset = aURL.indexOf("jbbs.shitaraba.net") >= 0 ? "EUC-JP" : "Shift_JIS";
 		this._request.send(null);
 	},
 
