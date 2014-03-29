@@ -305,8 +305,10 @@ FoxAge2chService.prototype = {
 							// upwardMarginが0で未読レスが無い場合、startRes > lastResとなるのを防ぐ
 							startRes = aItem.lastRes;
 						url += startRes.toString() + "-" + aItem.lastRes.toString();
-						if (startRes > 1)
-							// 1表示を抑止
+						if (startRes > 1 && 
+						    !(this.getItem(aItem.parent).bbs == FoxAge2chUtils.BBS_MACHI && 
+							  FoxAge2chUtils.prefs.getIntPref("viewer.type") == FoxAge2chUtils.VIEWER_NONE))
+							// 1表示を抑止。ただし、まちBBSをビューアなしで表示する場合を除く。
 							url += "n";
 					}
 				}
