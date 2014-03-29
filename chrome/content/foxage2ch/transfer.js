@@ -37,7 +37,7 @@ var TransferWizard = {
 		var loadCallback = function(aResponseText) {
 			if (aResponseText.indexOf("<title>2chbbs..</title>"   ) < 0 || 
 			    aResponseText.indexOf("Change your bookmark ASAP.") < 0 || 
-			    !/<a href=\"([^\"]+)\">GO !<\/a>/.test(aResponseText)) {
+			    !/<a href=\"([^\"]+)\">GO !<\/a/.test(aResponseText)) {
 				this._errorCallback(this.owner.bundle.getString("DETECT_FAILURE"));
 				return;
 			}

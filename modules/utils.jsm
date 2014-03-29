@@ -606,7 +606,18 @@ HTTPRequest.prototype = {
 				FoxAge2chUtils.reportError("Redirected: " + orgURL + " > " + url);
 			}
 			// #debug-end
+			// 一部の鯖（uni.2ch.netなど）で、移転済みにも関わらずsubject.txtがリダイレクトされず
+			// HTTPステータス200で返ってくるため、その中身まで見ないと移転済みかを判別できない。
+			var validateSubjectTxt = function(aText) {
+				var lines = aText.split("\n");
+				return (
+					lines.length == 3 && 
+					lines[0].indexOf("9246366142.dat<>") == 0 && 
+					lines[1].indexOf("9248888888.dat<>") == 0
+				);
+			};
 			if (aEvent.type == "load" && this._request.status == 200 && this._request.responseText && 
+			    !validateSubjectTxt(this._request.responseText) && 
 			    errorURLs.indexOf(url) < 0)
 				// ステータス200でなおかつレスポンステキストありでなおかつ人大杉でない
 				this._loadCallback(this._request.responseText);
@@ -615,6 +626,7 @@ HTTPRequest.prototype = {
 				// ステータス302 (人大杉)
 				// ステータス403 (バーボンハウス)
 				// レスポンステキストなし (移転済み板のsubject.txt)
+				// 9246366142.datと9248888888.datしかない (移転済み)
 				// http://www2.2ch.net/live.html (人大杉)
 				// http://server.maido3.com/ (移転済み？)
 				this._errorCallback(this._request.status);
