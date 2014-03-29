@@ -2,21 +2,21 @@
 <RDF:RDF xmlns:em="http://www.mozilla.org/2004/em-rdf#"
          xmlns:NC="http://home.netscape.com/NC-rdf#"
          xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <RDF:Description RDF:about="rdf:#$oYCN.2"
-                   em:version="3.3.7">
-    <em:targetApplication RDF:resource="rdf:#$rYCN.2"/>
+  <RDF:Seq RDF:about="rdf:#$HjKxO1">
+    <RDF:li RDF:resource="rdf:#$IjKxO1"/>
+  </RDF:Seq>
+  <RDF:Description RDF:about="urn:mozilla:extension:foxage2ch@xuldev.org"
+                   em:signature="MIGTMA0GCSqGSIb3DQEBDQUAA4GBAGwPIDWmBQoBx9iTBBgUxpbST4GpL96JatCSn3Fgx4iSPUjV2zNaiFwnLVcG+xrr86BbQErZSQY1JQ2PAUyzt7Mb59/z3f3kcSLGt8H02go56+vrMbrqGW/teYWFpXmZdZhun7U1G+csDlh9fZ9v3PsKptA3Eb2ZWBomntZRYenr">
+    <em:updates RDF:resource="rdf:#$HjKxO1"/>
   </RDF:Description>
-  <RDF:Description RDF:about="rdf:#$rYCN.2"
+  <RDF:Description RDF:about="rdf:#$IjKxO1"
+                   em:version="3.3.8">
+    <em:targetApplication RDF:resource="rdf:#$LjKxO1"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="rdf:#$LjKxO1"
                    em:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
                    em:minVersion="24.0"
-                   em:maxVersion="29.0a1"
-                   em:updateLink="http://www.xuldev.org/foxage2ch/foxage2ch-3.3.7.xpi"
-                   em:updateHash="sha1:07640ac7eb6d3c0660ce6c0593592e7318af8822" />
-  <RDF:Description RDF:about="urn:mozilla:extension:foxage2ch@xuldev.org"
-                   em:signature="MIGTMA0GCSqGSIb3DQEBDQUAA4GBAElKltybONtVOHfGH7z7JliaEat2JHwZpzvgoZV2qLfTOhUq6IpYQrOuyJ2OFaeHbP/ZSlBpyFAAuR6TlTX3YuvkeBN/nahn4Pq9vANDiQ1yzI7zMVa9KT+KqVP8i/KNZYzJIM5O+3nnDPaSDjLmoYCTW2Mx/qdyAoBcOhGYw9vS">
-    <em:updates RDF:resource="rdf:#$nYCN.2"/>
-  </RDF:Description>
-  <RDF:Seq RDF:about="rdf:#$nYCN.2">
-    <RDF:li RDF:resource="rdf:#$oYCN.2"/>
-  </RDF:Seq>
+                   em:maxVersion="31.0a1"
+                   em:updateLink="http://www.xuldev.org/foxage2ch/foxage2ch-3.3.8.xpi"
+                   em:updateHash="sha1:0ce59740afce21870cb6ee1581ec0822d9fadc27" />
 </RDF:RDF>
