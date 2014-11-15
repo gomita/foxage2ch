@@ -447,12 +447,15 @@ var FoxAge2chUtils = {
 		return aString;
 	},
 
-	// タイトルの■,◆,●,★,☆,制御文字,先頭の空白,連続する空白,末尾の空白を削除する
+	// タイトルの余計な文字列を削除する
 	sanitizeTitle: function F2U_sanitizeTitle(aTitle) {
-		aTitle = aTitle.replace(/\u25A0|\u25C6|\u25CF|\u2605|\u2606/g, " ");
-		aTitle = aTitle.replace(/[\u0000-\u001F]/g, "");
-		aTitle = aTitle.replace(/\s+/g, " ");
-		aTitle = aTitle.replace(/^\s+|\s+$/g, "");
+		aTitle = aTitle.replace("[\u8EE2\u8F09\u7981\u6B62]", "");	// [転載禁止]
+		aTitle = aTitle.replace("&copy;2ch.net", "");	// ©2ch.net
+		aTitle = aTitle.replace("&copy;bbspink.com", "");	// ©bbspink.com
+		aTitle = aTitle.replace(/\u25A0|\u25C6|\u25CF|\u2605|\u2606/g, " ");	// ■,◆,●,★,☆
+		aTitle = aTitle.replace(/[\u0000-\u001F]/g, "");	// 制御文字
+		aTitle = aTitle.replace(/\s+/g, " ");	// 連続する空白
+		aTitle = aTitle.replace(/^\s+|\s+$/g, "");	// 先頭・末尾の空白
 		return aTitle;
 	},
 
