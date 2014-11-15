@@ -598,17 +598,25 @@ HTTPRequest.prototype = {
 
 	handleEvent: function HR_handleEvent(aEvent) {
 		try {
-			var errorURLs = ["http://www2.2ch.net/live.html", "http://server.maido3.com/"];
-			var url = this._request.channel.URI.spec;
-			// #debug-begin
-			if (errorURLs.indexOf(url) >= 0) {
-				var orgURL = this._request.channel.originalURI.spec;
-				FoxAge2chUtils.reportError("Redirected: " + orgURL + " > " + url);
-			}
-			// #debug-end
+			var validateURL = function(aChannel) {
+				var errorURLs = [
+					"http://www2.2ch.net/nogood.html", 
+					"http://www2.2ch.net/live.html", 
+					"http://server.maido3.com/"
+				];
+				// #debug-begin
+				if (errorURLs.indexOf(aChannel.URI.spec) >= 0) {
+					var msg = aChannel.originalURI.spec + " -> " + aChannel.URI.spec;
+					FoxAge2chUtils.reportError("Redirected:\n" + msg);
+				}
+				// #debug-end
+				return errorURLs.indexOf(aChannel.URI.spec) >= 0;
+			};
 			// 一部の鯖（uni.2ch.netなど）で、移転済みにも関わらずsubject.txtがリダイレクトされず
 			// HTTPステータス200で返ってくるため、その中身まで見ないと移転済みかを判別できない。
-			var validateSubjectTxt = function(aText) {
+			var validateResponse = function(aText) {
+				if (!aText)
+					return false;
 				var lines = aText.split("\n");
 				return (
 					lines.length == 3 && 
@@ -616,9 +624,9 @@ HTTPRequest.prototype = {
 					lines[1].indexOf("9248888888.dat<>") == 0
 				);
 			};
-			if (aEvent.type == "load" && this._request.status == 200 && this._request.responseText && 
-			    !validateSubjectTxt(this._request.responseText) && 
-			    errorURLs.indexOf(url) < 0)
+			if (aEvent.type == "load" && this._request.status == 200 && 
+			    !validateURL(this._request.channel) && 
+			    !validateResponse(this._request.responseText))
 				// ステータス200でなおかつレスポンステキストありでなおかつ人大杉でない
 				this._loadCallback(this._request.responseText);
 			else
