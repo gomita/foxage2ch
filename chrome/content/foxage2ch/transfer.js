@@ -37,15 +37,12 @@ var TransferWizard = {
 		var loadCallback = function(aResponseText) {
 			if (aResponseText.indexOf("<title>2chbbs..</title>"   ) < 0 || 
 			    aResponseText.indexOf("Change your bookmark ASAP.") < 0 || 
-			    !/<a href=\"([^\"]+)\">GO !<\/a/.test(aResponseText)) {
+			    !/window\.location\.href=\"([^\"]+)\"/.test(aResponseText)) {
 				this._errorCallback(this.owner.bundle.getString("DETECT_FAILURE"));
 				return;
 			}
 			try {
-				var newURL = RegExp.$1;
-				// fix issue#2
-				newURL = newURL.replace("http://pele.2ch.net/", "http://pele.bbspink.com/");
-				this.owner.doTransfer(newURL);
+				this.owner.doTransfer(RegExp.$1);
 			}
 			catch (ex) {
 				this._errorCallback(ex);
