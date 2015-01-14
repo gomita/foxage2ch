@@ -546,9 +546,9 @@ var FoxAge2chUI = {
 			var win = this._getBrowserWindow();
 			if (!win)
 				return;
-			var protocol = win.content.location.protocol;
-			var val = protocol == "chrome:" || protocol == "about:" ? "" : 
-			          FoxAge2chUtils.unwrapURL(win.content.location.href);
+			var scheme = win.gBrowser.currentURI.scheme;
+			var val = scheme == "chrome" || scheme == "about" ? "" : 
+			          FoxAge2chUtils.unwrapURL(win.gBrowser.currentURI.spec);
 			var ret = { value: val };
 			if (!FoxAge2chUtils.prompt.prompt(window, "FoxAge2ch", msg, ret, null, {}))
 				return;
