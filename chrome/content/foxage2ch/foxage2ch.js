@@ -352,8 +352,8 @@ var FoxAge2chUI = {
 			else
 				self.showMessage(null, aName);
 		};
-		showHideMessage("threadError", "THREAD_ERROR");
 		showHideMessage("boardError", "BOARD_ERROR");
+		showHideMessage("threadError", "THREAD_ERROR");
 		self = null;
 	},
 
