@@ -562,6 +562,7 @@ HTTPRequest.prototype = {
 		this._request.addEventListener("error", this, false);
 		this._request.QueryInterface(Ci.nsIXMLHttpRequest);
 		this._request.open("GET", aURL, true);
+		this._request.channel.loadFlags |= Ci.nsIRequest.LOAD_BYPASS_CACHE;
 		this._request.setRequestHeader("User-Agent", FoxAge2chUtils.userAgent);
 		this._request.channel.contentCharset = aURL.indexOf("jbbs.shitaraba.net") >= 0 ? "EUC-JP" : "Shift_JIS";
 		this._request.send(null);
