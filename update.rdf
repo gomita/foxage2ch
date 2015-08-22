@@ -2,21 +2,21 @@
 <RDF:RDF xmlns:em="http://www.mozilla.org/2004/em-rdf#"
          xmlns:NC="http://home.netscape.com/NC-rdf#"
          xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <RDF:Description RDF:about="urn:mozilla:extension:foxage2ch@xuldev.org"
-                   em:signature="MIGTMA0GCSqGSIb3DQEBDQUAA4GBAD3Af1RoJhs3gUjrIKUpW9oZ07a5cGLEYhC9lm1F8psFE2RlYjZ0mVFgt1DCDDz3HxPYMELLYCvJB9KoJ/01NdlG722LdZvebmHHEA+IWmwvSgsm02AkA0znNtt3uejyWvoQnoCImzfLt+i4/ashANJJ211K6rI9JhXyrQ03Tv/U">
-    <em:updates RDF:resource="rdf:#$QJr0F3"/>
-  </RDF:Description>
-  <RDF:Description RDF:about="rdf:#$UJr0F3"
+  <RDF:Description RDF:about="rdf:#$3oiwq1"
                    em:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
                    em:minVersion="31.0"
-                   em:maxVersion="38.0a1"
-                   em:updateLink="http://www.xuldev.org/foxage2ch/foxage2ch-3.3.12.xpi"
-                   em:updateHash="sha1:71d163f3d8dbb9d00672c365b2122b1cdc47b4bf" />
-  <RDF:Description RDF:about="rdf:#$RJr0F3"
-                   em:version="3.3.12">
-    <em:targetApplication RDF:resource="rdf:#$UJr0F3"/>
+                   em:maxVersion="43.0a1"
+                   em:updateLink="http://www.xuldev.org/foxage2ch/foxage2ch-3.3.13.xpi"
+                   em:updateHash="sha1:b6d45bf32652308a49657740ad128df3235d4e0a" />
+  <RDF:Description RDF:about="urn:mozilla:extension:foxage2ch@xuldev.org"
+                   em:signature="MIGTMA0GCSqGSIb3DQEBDQUAA4GBAKW4g/OHifmTV8y0eY2frr2Ggi/ND3WTBCd72n9uUIJVRn7hpnyt/vlFHhhAocg2+ly4ZLphDJc4rSlxQxqKqE7wQGfu6rOjxaMLZXaqNYOLxlVSXVrZiiKPB2D5z8FS5sq9rLQfflBz89GSPXr6TNIVBxhgNN/oZYiK77m1xWPA">
+    <em:updates RDF:resource="rdf:#$+niwq1"/>
   </RDF:Description>
-  <RDF:Seq RDF:about="rdf:#$QJr0F3">
-    <RDF:li RDF:resource="rdf:#$RJr0F3"/>
+  <RDF:Description RDF:about="rdf:#$0oiwq1"
+                   em:version="3.3.13">
+    <em:targetApplication RDF:resource="rdf:#$3oiwq1"/>
+  </RDF:Description>
+  <RDF:Seq RDF:about="rdf:#$+niwq1">
+    <RDF:li RDF:resource="rdf:#$0oiwq1"/>
   </RDF:Seq>
 </RDF:RDF>
