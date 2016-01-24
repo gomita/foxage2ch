@@ -463,14 +463,10 @@ var FoxAge2chUtils = {
 	},
 
 	// エラーコンソールへ文字列を出力し、エラーコンソールを開く
-	reportError: function F2U_reportError(aMessage, aOpenConsole) {
+	reportError: function F2U_reportError(aMessage) {
 		var err = Cc["@mozilla.org/scripterror;1"].createInstance(Ci.nsIScriptError);
 		err.init(aMessage, null, null, null, null, err.errorFlag, "XPConnect JavaScript");
 		this.console.logMessage(err);
-		if (aOpenConsole === undefined || aOpenConsole) {
-			var fuelApp = Cc["@mozilla.org/fuel/application;1"].getService(Ci.fuelIApplication);
-			fuelApp.console.open();
-		}
 	},
 
 	// window.alert相当

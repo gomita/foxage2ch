@@ -77,7 +77,8 @@ var FoxAge2chOverlay = {
 		switch (mode) {
 			case 1: 
 				// サイドバーで開く
-				toggleSidebar("viewFoxAge2chSidebar", aForceOpen);
+				aForceOpen ? SidebarUI.show("viewFoxAge2chSidebar")
+				           : SidebarUI.toggle("viewFoxAge2chSidebar");
 				break;
 			case 2: 
 				// ウィンドウで開く
