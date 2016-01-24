@@ -7,7 +7,7 @@
 		<em:id>foxage2ch@xuldev.org</em:id>
 		<em:type>2</em:type>
 		<em:name>FoxAge2ch</em:name>
-		<em:version>3.3.13</em:version>
+		<em:version>3.4</em:version>
 		<em:description>2ch BBS Update Checker</em:description>
 		<em:creator>Gomita</em:creator>
 		<em:localized>
@@ -21,8 +21,6 @@
 		</em:localized>
 		<em:optionsURL>chrome://foxage2ch/content/options.xul</em:optionsURL>
 		<em:homepageURL>http://www.xuldev.org/foxage2ch/</em:homepageURL>
-		<em:updateURL>http://www.xuldev.org/foxage2ch/update.rdf</em:updateURL>
-		<em:updateKey>MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCx78Vj3z1TVuCcca7gJYUcHSt5i4INTdnIXgFg4cXDtLJ4rhSE2DAeQZ9OYCXAsn0J9qk5hHpee0jHa0a/QaKysTjFp11w9Cwtz7JJrSAEdfGn1Zus4Ze8ZjDxdr+VKXbPGf9aNTCRMSM/OTY0QZsDfM59M7oESsoS78DILLjEJQIDAQAB</em:updateKey>
 		<em:multiprocessCompatible>true</em:multiprocessCompatible>
 		<em:targetApplication>
 			<Description>
