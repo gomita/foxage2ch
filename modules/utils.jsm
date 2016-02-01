@@ -438,24 +438,25 @@ var FoxAge2chUtils = {
 		};
 	},
 
-	// 「&」「<」「>」「"」の実体参照をデコードする
+	// 「&」「<」「>」「"」「©」の文字参照をデコードする
 	unescapeEntities: function F2U_unescapeEntities(aString) {
 		aString = aString.replace(/&amp;/g, '&');
 		aString = aString.replace(/&lt;/g, '<');
 		aString = aString.replace(/&gt;/g, '>');
 		aString = aString.replace(/&quot;/g, '"');
+		aString = aString.replace(/&copy;|&#169;/g, '\u00A9');
 		return aString;
 	},
 
 	// タイトルの余計な文字列を削除する
 	sanitizeTitle: function F2U_sanitizeTitle(aTitle) {
-		aTitle = aTitle.replace("[\u8EE2\u8F09\u7981\u6B62]", "", "g");	// [転載禁止]
-		aTitle = aTitle.replace("[\u7121\u65AD\u8EE2\u8F09\u7981\u6B62]", "", "g");	// [無断転載禁止]
-		aTitle = aTitle.replace("&copy;2ch.net", "", "g");	// ©2ch.net
-		aTitle = aTitle.replace("&#169;2ch.net", "", "g");	// ©2ch.net
-		aTitle = aTitle.replace("&copy;bbspink.com", "", "g");	// ©bbspink.com
-		aTitle = aTitle.replace("&#169;bbspink.com", "", "g");	// @bbspink.com
-		aTitle = aTitle.replace(/\u25A0|\u25C6|\u25CF|\u2605|\u2606/g, " ");	// ■,◆,●,★,☆
+		if (FoxAge2chUtils.prefs.getBoolPref("removeAutoAddedWords")) {
+			aTitle = aTitle.replace(/\[(?:\u7121\u65AD)?\u8EE2\u8F09\u7981\u6B62\]/g, "");	// [無断転載禁止],[転載禁止]
+			aTitle = aTitle.replace(/\u00A9(?:2ch\.net|bbspink\.com)/g, "");	// ©2ch.net,©bbspink.com
+		}
+		if (FoxAge2chUtils.prefs.getBoolPref("removeDecorations")) {
+			aTitle = aTitle.replace(/\u25A0|\u25A1|\u25C6|\u25C7|\u25CF|\u25CB|\u2605|\u2606|\u25B2|\u25B3|\u25BC|\u25BD/g, " ");	// ■,□,◆,◇,●,○,★,☆,▲,△,▼,▽
+		}
 		aTitle = aTitle.replace(/[\u0000-\u001F]/g, "");	// 制御文字
 		aTitle = aTitle.replace(/\s+/g, " ");	// 連続する空白
 		aTitle = aTitle.replace(/^\s+|\s+$/g, "");	// 先頭・末尾の空白
