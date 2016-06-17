@@ -35,7 +35,7 @@ var TransferWizard = {
 			this.owner.wizard.getButton("cancel").disabled = false;
 		};
 		var loadCallback = function(aResponseText) {
-			if (aResponseText.indexOf("<title>2chbbs..</title>"   ) < 0 || 
+			if (!/<title>(?:2chbbs|bbspink)\.\.<\/title>/.test(aResponseText) || 
 			    aResponseText.indexOf("Change your bookmark ASAP.") < 0 || 
 			    !/window\.location\.href=\"([^\"]+)\"/.test(aResponseText)) {
 				this._errorCallback(this.owner.bundle.getString("DETECT_FAILURE"));
