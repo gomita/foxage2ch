@@ -547,8 +547,9 @@ var FoxAge2chUI = {
 			if (!win)
 				return;
 			var scheme = win.gBrowser.currentURI.scheme;
-			var val = scheme == "chrome" || scheme == "about" ? "" : 
-			          FoxAge2chUtils.unwrapURL(win.gBrowser.currentURI.spec);
+			// chaika-1.8.0 以降の板URL chrome://chaika/content/board/page.xul?url=[URL] を認識させる
+			var val = scheme == "chrome" && win.gBrowser.currentURI.host != "chaika" || scheme == "about"
+			        ? "" : FoxAge2chUtils.unwrapURL(win.gBrowser.currentURI.spec);
 			var ret = { value: val };
 			if (!FoxAge2chUtils.prompt.prompt(window, "FoxAge2ch", msg, ret, null, {}))
 				return;
