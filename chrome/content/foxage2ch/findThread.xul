@@ -85,7 +85,7 @@
 				</rule>
 			</template>
 		</tree>
-		<checkbox id="resultCheckbox" orglabel="&resultCheckbox;: " />
+		<checkbox id="resultCheckbox" orglabel="&resultCheckbox;: " persist="checked" />
 	</wizardpage>
 
 </wizard>
