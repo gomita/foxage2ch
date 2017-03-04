@@ -398,7 +398,7 @@ var FoxAge2chUI = {
 			case "dragover": 
 				// URL（リンクやfavicon）またはブラウザタブのドロップを許可
 				if (dt.types.contains("text/x-moz-url") || 
-				    dt.types.contains("application/x-moz-tabbrowser-tab"))
+				    dt.types.contains("text/x-moz-text-internal"))
 					event.preventDefault();
 				break;
 			case "drop": 
@@ -412,7 +412,7 @@ var FoxAge2chUI = {
 					var url = dt.getData("text/x-moz-url").split("\n")[0];
 					this.addURL(url);
 				}
-				else if (dt.types.contains("application/x-moz-tabbrowser-tab")) {
+				else if (dt.types.contains("text/x-moz-text-internal")) {
 					// ブラウザタブのドロップ時、板やスレを追加
 					var url = dt.getData("text/x-moz-text-internal");
 					this.addURL(url);
