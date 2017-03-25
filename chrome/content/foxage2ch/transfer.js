@@ -76,7 +76,8 @@ var TransferWizard = {
 		// pc7.2ch.net/software → pc7.2ch.net
 		var oldHost = this.boardItem.id.substr(0, this.boardItem.id.indexOf("/"));
 		// http://pc11.2ch.net/software/ → pc11.2ch.net
-		if (!/^http:\/\/([^\/]+)\//.test(aNewURL))
+		// //hawk.2ch.net/livejupiter/ のような相対URLの場合もある(2017/3/24)
+		if (!/^(?:http:)?\/\/([^\/]+)\//.test(aNewURL))
 			throw Cr.NS_ERROR_UNEXPECTED;
 		var newHost = RegExp.$1;
 		this.trace(this.bundle.getString("DETECT_SUCCESS") + ": " + oldHost + " \u2192 " + newHost);
