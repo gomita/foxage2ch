@@ -157,8 +157,7 @@ var FoxAge2chUtils = {
 	// 「http://...http://」のようにビューアやWebサービスによってラップされたURLについて、
 	// 最後のhttp://以降をURLとみなして返す
 	unwrapURL: function F2U_unwrapURL(aURL) {
-		var pos = aURL.lastIndexOf("http://");
-		return pos >= 0 ? aURL.substr(pos) : aURL;
+		return /^.*(https?:\/\/.+?)$/.test(aURL) ? RegExp.$1 : aURL;
 	},
 
 	// 登録可能なURLをパースして、[板のアイテムID, スレッドのアイテムID] の配列へ変換する
@@ -168,9 +167,9 @@ var FoxAge2chUtils = {
 	parseFromURL: function F2U_parseFromURL(aURL) {
 		// unwrapURLは呼び出しもとのFoxAge2chUI.addURL側で実施する
 		// aURL = this.unwrapURL(aURL);
-		if (aURL.indexOf("http://") != 0)
+		if (!/^https?:\/\//.test(aURL))
 			throw Cr.NS_ERROR_MALFORMED_URI;
-		aURL = aURL.substr("http://".length);
+		aURL = RegExp.rightContext;
 		if (/\/test\/read\.(?:cgi|so|html)\/(\w+)\/(\d+)/.test(aURL))
 			// ２ちゃんねるスレッド
 			// http://pc7.2ch.net/test/read.cgi/software/1234567890/l50
