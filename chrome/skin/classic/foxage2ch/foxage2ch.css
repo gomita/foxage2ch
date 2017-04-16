@@ -85,7 +85,7 @@ treechildren::-moz-tree-image(leaf, thread, primary, datout) {
 
 treechildren::-moz-tree-image(container, pink) {
 	-moz-image-region: auto !important;
-	list-style-image: url("http://www.bbspink.com/favicon.ico") !important;
+	list-style-image: url("http://deleter.bbspink.com/favicon.ico") !important;
 	width: 16px; height: 16px;
 }
 
