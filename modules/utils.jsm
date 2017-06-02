@@ -601,18 +601,13 @@ HTTPRequest.prototype = {
 	handleEvent: function HR_handleEvent(aEvent) {
 		try {
 			var validateURL = function(aChannel) {
-				var errorURLs = [
-					"http://www2.2ch.net/nogood.html", 
-					"http://www2.2ch.net/live.html", 
-					"http://server.maido3.com/"
-				];
 				// #debug-begin
-				if (errorURLs.indexOf(aChannel.URI.spec) >= 0) {
+				if (aChannel.originalURI.spec != aChannel.URI.spec) {
 					var msg = aChannel.originalURI.spec + " -> " + aChannel.URI.spec;
 					FoxAge2chUtils.reportError("Redirected:\n" + msg);
 				}
 				// #debug-end
-				return errorURLs.indexOf(aChannel.URI.spec) >= 0;
+				return aChannel.originalURI.spec != aChannel.URI.spec;
 			};
 			// 一部の鯖（uni.2ch.netなど）で、移転済みにも関わらずsubject.txtがリダイレクトされず
 			// HTTPステータス200で返ってくるため、その中身まで見ないと移転済みかを判別できない。
