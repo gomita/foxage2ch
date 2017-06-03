@@ -78,7 +78,7 @@ var FindThread = {
 						key: RegExp.$1,
 						created: parseInt(RegExp.$1, 10) * 1000 * 1000,
 						lastRes: parseInt(RegExp.$3, 10),
-						title: FoxAge2chUtils.unescapeEntities(FoxAge2chUtils.sanitizeTitle(RegExp.$2))
+						title: FoxAge2chUtils.sanitizeTitle(FoxAge2chUtils.unescapeEntities(RegExp.$2))
 					});
 			}, this);
 			this.owner.wizard.canAdvance = true;

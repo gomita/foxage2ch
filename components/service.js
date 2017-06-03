@@ -736,8 +736,7 @@ FoxAge2chService.prototype = {
 				            ? /<h1>([^<]+)<\/h1>/i : /<title>([^<]+)<\/title>/i;
 				if (pattern.test(aResponseText)) {
 					var title = RegExp.$1;
-					title = FoxAge2chUtils.unescapeEntities(title);
-					title = FoxAge2chUtils.sanitizeTitle(title);
+					title = FoxAge2chUtils.sanitizeTitle(FoxAge2chUtils.unescapeEntities(title));
 					if (item.type == FoxAge2chUtils.TYPE_BOARD)
 						// 「＠2ch掲示板」「＠bbspink掲示板」などをカット
 						title = title.replace(/\uFF20.+$/, "");
@@ -787,8 +786,7 @@ FoxAge2chService.prototype = {
 				var pattern = new RegExp(dat + "\\.(?:dat<>|cgi,)(.+)\\s*\\(\\d+\\)");
 				if (pattern.test(aResponseText)) {
 					var title = RegExp.$1;
-					title = FoxAge2chUtils.unescapeEntities(title);
-					title = FoxAge2chUtils.sanitizeTitle(title);
+					title = FoxAge2chUtils.sanitizeTitle(FoxAge2chUtils.unescapeEntities(title));
 					FoxAge2chUtils.service.changeItemProperty(item, "title", title);
 					FoxAge2chUtils.rebuildTree(item.id);
 					FoxAge2chUtils.showMessage(FoxAge2chUtils.getLocaleString("SUCCESS"));

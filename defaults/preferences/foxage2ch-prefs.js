@@ -17,3 +17,5 @@ pref("extensions.foxage2ch.loadInterval", 3);
 pref("extensions.foxage2ch.dataDir.default", true);
 pref("extensions.foxage2ch.dataDir.path", "");
 pref("extensions.foxage2ch.maxBackups", 5);
+pref("extensions.foxage2ch.removeAutoAddedWords", true);
+pref("extensions.foxage2ch.removeDecorations", true);
